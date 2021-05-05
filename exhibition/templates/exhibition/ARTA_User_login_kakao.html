@@ -1,0 +1,84 @@
+{% extends 'exhibition/ARTA_header.html' %}
+{% load static %}
+{% load socialaccount %}
+{% block header_title %}<title>로그인</title>{% endblock %}
+
+{% block script_blcok %}{% endblock %}
+{% block style_blcok %}
+    <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'exhibition/css/exhibition_list_style.css' %}"/>
+    <style>
+        p {
+            font-size: 15px;
+        }
+
+        .introduce {
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10% 10% 100% 10%;
+            object-fit: contain;
+        }
+
+        .arta {
+            line-height: 165%;
+            text-align: left;
+        }
+
+        @media screen and (min-width: 992px) {
+            .introduce {
+                padding: 10% 7% 50% 7%;
+                border-bottom: 1px solid #5CA4A2;
+            }
+
+            .arta {
+                line-height: 200%;
+                font-size: 20px;
+            }
+
+            .intro {
+                display: none;
+            }
+        }
+        .login_btn {
+            border: 1px solid #5CA4A2;
+            background-color: white;
+            margin-top: 10px;
+            padding: 7px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+    </style>
+{% endblock %}
+
+{% block main_blcok %}
+    <div class="row">
+        <div class="aside_container col-md-1 col-md-push-11">
+            <p class="intro">로그인</p>
+        </div>
+        <div class="content_container col-md-11 col-md-pull-1">
+            <div class="article_container">
+                <div class="introduce">
+                    <p class="arta">
+                        본 온라인 전시회는 올바른 댓글 문화를 위하여 로그인을 완료한 사용자에 한하여 글을 남길 수 있도록 되어 있습니다.<br/>
+                        카카오 로그인만을 필요로 하며, 서비스 종료와 함께 로그인 데이터는 일괄 삭제되고
+                        이를 제외한 데이터는 추후 운영될 온라인 전시회를 위해 사용될 예정입니다.<br/>
+                        비대면 상황에서도 작품을 완성해나간 학우들을 위해 예쁜 댓글 남겨주시면 감사하겠습니다.<br/>
+                        <br/>
+                    </p>
+                    <div class="text-center">- 화인부락 온라인 전시회 추진팀 -</div>
+                    <br/>
+                    <div class="col-12 text-center">
+                        <a class="login_btn btn-block"
+                           href="{% provider_login_url 'kakao' method='oauth2' %}">
+                            <img src="https://simpleicons.org/icons/kakaotalk.svg" height="20pt">
+                            &nbsp;&nbsp;카카오 로그인
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

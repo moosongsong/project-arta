@@ -1,0 +1,85 @@
+{% extends 'exhibition/ARTA_header.html' %}
+{% load static %}
+{% block header_title %}<title>소개</title>{% endblock %}
+
+{% block script_blcok %}{% endblock %}
+{% block style_blcok %}
+    <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'exhibition/css/exhibition_list_style.css' %}"/>
+    <style>
+        p {
+            font-size: 15px;
+        }
+
+        .introduce {
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 7% 10% 10% 10%;
+            object-fit: contain;
+        }
+
+        .arta {
+            line-height: 165%;
+            text-align: left;
+        }
+
+        @media screen and (min-width: 992px) {
+            .introduce {
+                padding: 7%;
+                border-bottom: 1px solid #5CA4A2;
+            }
+
+            .arta {
+                line-height: 200%;
+                font-size: 15px;
+            }
+
+            .intro {
+                display: none;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block main_blcok %}
+    <div class="row">
+        <div class="aside_container col-md-1 col-md-push-11">
+            <p class="intro">소개</p>
+        </div>
+        <div class="content_container col-md-11 col-md-pull-1">
+            <div class="article_container">
+                <div class="introduce">
+                    <h3><i class="fas fa-palette"></i> 화인부락</h3>
+                    <p class="arta">
+                        <br/>
+                        화인부락은 숭실대학교의 유일한 순수미술 동아리입니다. 산업의 발전에 따라 간편하고 여러 효과를 접목할 수 있는 디지털 드로잉이 크게 성장하였으나, 캔버스 위 붓터치에서만
+                        느낄 수 있는 생동감은 여전히 많은 사람들에게 감동을 전달하고 있습니다. 화인부락 또한 작품을 통해 본인의 감성을 비추고 있으며, 정기적인 오프라인 전시회를 통해 모든
+                        학우들에게 그 감성을 전해왔습니다. 뿐만 아니라 화인부락은 다음과 같이 작품활동 및 다양한 활동으로 동아리원들 간 화합을 이루고 있습니다.<br/><br/>
+                    </p>
+                    <h4><i class="fas fa-paint-brush"></i> 다양한 종류의 작품활동 및 멘토링</h4>
+                    <p class="arta">
+                        화인부락의 작품은 순수미술, 특히 유화를 다루고 있습니다. 그 외에도 부원들의 자율에 따라 수채화, 아크릴화, 팝아트, 소묘 드로잉, 캘리그라피, 오일파스텔 등 제한 없는
+                        활동을 하고 있습니다. 대다수의 학우들은 미술에 대한 전문적인 경험이 없는 경우가 많아 동아리 가입을 고민하게 되지만, 이러한 점을 고려하여 화인부락의 기존부원들은 평소
+                        신입부원들에게 미술용품의 사용 및 관리방법부터 페인팅 방법까지 기초적인 조언들을 하고 있습니다. 특히 멘토링 프로그램에 참가하는 부원들은 이러한 조언을 정기적으로 구할 수
+                        있습니다.<br/><br/>
+                    </p>
+                    <h4><i class="fas fa-paint-brush"></i> 전시회</h4>
+                    <p class="arta">
+                        매 학기 당 1회 부원들의 작품을 모아 전시회를 개최하고 있습니다. 야외 및 실내에서 전시하여 많은 학우들이 작품을 감상할 수 있도록 조성해왔습니다. 다만, 현 코로나
+                        사태로 인하여 이번 전시회는 온라인 상으로 개최하였으며, 추후 코로나 바이러스가 종식된 후 원래대로 오프라인 전시회를 개최할 예정입니다.<br/><br/>
+                    </p>
+                    <h4><i class="fas fa-paint-brush"></i> 미술 관련 봉사활동</h4>
+                    <p class="arta">
+                        화인부락은 순수미술 뿐만 아니라 이와 연관된 봉사활동 또한 꾸준히 해왔습니다. 벽화 봉사활동을 통해 서울 각지의 벽과 계단을 찾아가 밋밋한 단색을 다채로운 그림들로 채우고
+                        있습니다. 또한, 사당종합복지관과 연계하여 초등학생들을 대상으로 한 미술 멘토링을 진행하고 있습니다.<br/><br/>
+                    </p>
+                    <p class="arta">
+                        금회 전시는 불가피하게도 온라인으로 개최하여 생생한 전달은 어렵겠으나, 코로나 시대를 지내고 있는 학우들에게 잠시나마 삭막함을 덜어주는 시간이 되었으면 좋겠습니다.<br/><br/>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'exhibition/ARTA_header.html' %}
+{% load static %}
+{% block header_title %}<title>ARTA 검색</title>{% endblock %}
+
+{% block script_blcok %}{% endblock %}
+{% block style_blcok %}
+    <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'exhibition/css/search.css' %}"/>
+{% endblock %}
+
+{% block main_blcok %}
+    <div class="row">
+        <div class="aside_container col-md-1 col-md-push-11">
+            <p class="search_top">검색</p> <!--모바일 버전에서만 보임-->
+        </div>
+        <div class="content_container col-md-11 col-md-pull-1">
+            <div class="article_container">
+                <div class="search_page">
+                    <div class="nav_search col-lg-3"> <!--search 부분 nav-->
+                        <label>
+{#                            <input type='radio' name='service_type' value='all'>전체#}
+                            <input type='radio' name='service_type' value='exhibition'>전시회
+                            <input type='radio' name='service_type' value='piece' checked="checked">그림
+                        </label>
+                    </div>
+                    <div class="input-group col-lg-9">
+                        <label for="search-input"></label>
+                        <input type="text" id="search-input" class="form-control"
+                               placeholder="검색어를 입력해주세요" name="search">
+                        <div class="input-group-btn">
+                            <button id="btn_click" class="btn search_btn" type="button" onclick="function serchPost() {
+                                let searchValue = document.getElementById('search-input').value.trim();
+
+                                if (searchValue.length > 1){
+                                    let radioVal = $('input[name=service_type]:checked').val();
+                                    location.href='/search/result/'+radioVal+'/'+searchValue+'/';
+                                }
+                                else {
+                                    alert('검색어 ('+searchValue+')가 너무 짧습니다.');
+                                }
+                                }
+                                serchPost()">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer col-xs-12" style="height: 60px"> <!--아래 페이징 공간-->
+            </div>
+        </div>
+    </div>
+{% endblock %}

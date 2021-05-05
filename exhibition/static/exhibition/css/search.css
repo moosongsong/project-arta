@@ -1,0 +1,58 @@
+.article_container { /*경계선 없애기*/
+  border: 0;
+}
+.search_page {
+  display: inline-block;
+  width: 100%;
+  float: right;
+  padding-top: 7%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+/* .form-control {
+  text-align: right;
+  border: 1px solid #5CA4A2;
+  font-size: 1.1em;
+  color: #5CA4A2;
+} */
+#text {
+  border: 1px solid #5CA4A2;
+  text-align: right;
+  font-size: 1.2em;
+  color: #5CA4A2;
+}
+.nav_search {
+  padding-bottom: 5px;
+  display: inline-block;
+}
+.nav_search a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #5CA4A2;
+}
+.search_top {
+  text-align: center;
+}
+.search_btn {
+  color: #5CA4A2;
+  /* border: 1px solid #5CA4A2; */
+  background-color: white;
+  border-radius: 6px;
+ }
+ #btn_click {
+   border: 1px solid #5CA4A2;
+ }
+
+@media screen and (min-width: 992px) {
+  .aside_container {  /*모바일 상단 "검색" 웹에서는 안보이게 */
+    display: none;
+  }
+  .search_page {
+    width: 75%;
+  }
+  .nav_search a {
+    font-size: 15px;
+    line-height: 230%;
+    padding-right: 10px;
+  }
+}

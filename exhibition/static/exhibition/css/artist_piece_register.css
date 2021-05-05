@@ -1,0 +1,58 @@
+.form-control {
+  border: 1px solid #5CA4A2;
+}
+#piece_name,
+#comment,
+#piece_explain,
+#exhibitor,
+#priority,
+#sel1 {
+  border: 1px solid #5CA4A2;
+}
+.name {
+  margin-top: 20px;
+}
+.mark_checkbox {
+  margin-bottom: 20px;
+}
+.piece_material {
+  margin-bottom: 20px;
+}
+#cancel_btn,
+#register_btn {
+  border: 1px solid #5CA4A2;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 12px;
+}
+#cancel_btn:focus,
+#register_btn:focus {
+  outline: none;
+}
+#cancel_btn:hover,
+#register_btn:hover {
+  color: #5CA4A2;
+}
+textarea {
+  resize: none;
+}
+.input[id="cb1"]+label { /*checkbox 색 변경*/
+  display: inline-block;
+  border: 1px solid #5CA4A2;
+}
+@media screen and (max-width: 991px) {
+  .form-signin-heading {
+    display: none;
+  }
+  .category_list {
+    display: none;
+  }
+}
+@media screen and (min-width: 992px) {
+  .category_list a{
+    color: #5CA4A2;
+  }
+  .piece_register {
+    display: none;
+  }
+}

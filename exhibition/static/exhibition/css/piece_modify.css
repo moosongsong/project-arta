@@ -1,0 +1,59 @@
+article{
+    border-bottom: 1px solid #5CA4A2;
+}
+.piece_image{
+    width: 100%;
+    padding: 5%;
+    object-fit: contain;
+    border-bottom: 1px solid #5CA4A2;
+}
+.piece_info {
+  border-bottom: 1px solid #5CA4A2;
+}
+.piece_name {
+  margin-bottom: 1px;
+}
+.form-group {
+  margin-top: 5px;
+}
+#piece_explain {
+  border: 1px solid #5CA4A2;
+  resize: none;
+}
+#priority {
+  border: 1px solid #5CA4A2;
+}
+#cancel_btn, #modify_btn {
+  border: 1px solid #5CA4A2;
+  background-color: white;
+}
+#cancel_btn:hover,
+#modify_btn:hover {
+  color: #5CA4A2;
+}
+#cancel_btn:focus,
+#modify_btn:focus {
+  outline: none;
+}
+@media screen and (max-width: 991px) { /*992px 미만에서만 적용*/
+  .form-signin-heading {
+    display: none;
+  }
+  .aside_container { 
+    display: none;
+  }
+}
+@media screen and (min-width: 992px) {
+  .category_list a {
+    color: #5CA4A2;
+  }
+  .piece_image, .piece_info {
+    border-right: 1px solid #5CA4A2;
+  }
+  .form-group {
+    padding-top: 5%;
+  }
+  .piece_name {
+    font-size: 18px;
+  }
+}

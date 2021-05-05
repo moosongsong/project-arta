@@ -1,0 +1,149 @@
+#footer {
+  border-top: 1px solid #5CA4A2;
+}
+p {
+  color: #5CA4A2;
+}
+.piece {   /*작품 이미지*/
+  width: 100%;
+  padding: 5%;
+  padding-bottom: 0;
+  object-fit: contain;
+}
+.exhibitor {    /*작가명*/
+  margin-top: 30px;
+  text-align: right;
+  padding-right: 5%;
+  font-size: 15px;
+}
+.piece_name {    /*작품명*/
+  margin-top: 30px;
+  text-align: left;
+  padding-left: 5%;
+  font-size: 15px;
+}
+.explain_piece {   /*작품 소개 클래스*/
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.explanation {  /*작품 소개*/
+  border-top: 1px solid #5CA4A2;
+  font-size: 15px;
+  color: #A0CDC5;
+}
+.icon {   /*공유, 좋아요 아이콘 클래스*/
+  padding-left: 5%;
+}
+.share, .bookmark {
+  margin: 3px;
+  font-size: 17px;
+  color: #5CA4A2;
+}
+.comments {   /*댓글 클래스*/
+  padding-top: 25px;
+  padding: 5%;
+  /* position: relative; */
+}
+.input-comment {
+  padding-bottom: 10px;
+  position: relative;
+}
+.form-control {
+  display: inline-block;
+  width: 100%;
+  resize: none;
+  padding-right: 38px;!important;
+  padding-left: 5px;!important;
+  padding: 2%;
+}
+textarea {
+  resize: none;
+  border: 0;
+  width: 100%;
+  padding: 5%;
+}
+.user_name {
+  float: left;
+  padding-right: 15px;
+  font-weight: bold;
+}
+.comment-date {
+  color: #A0CDC5;
+}
+.comment-delete {
+  color: #A0CDC5;
+  display: inline-block;
+  float: right;
+}
+.comment-delete a{
+  text-decoration: none;
+}
+.comment-row {
+  /* position: relative; */
+  padding-bottom: 10%;
+  border: 1px solid #5CA4A2;
+  width: 100%;
+  /* padding: 2px 5px 2px; */
+  padding: 5px;
+  border-radius: 6px;
+  margin-bottom: 7px;
+}
+
+.comment_list {
+  width: 100%;
+  padding-bottom: 7px;
+}
+#new-comment {
+  border: 1px solid #5CA4A2;
+}
+.submit_btn {  /*댓글 버튼*/
+  display: inline-block;
+  position: absolute;
+  border: 1px solid #5CA4A2;
+  border-radius: 8px;
+  background-color: #5CA4A2;
+  color: white;
+  padding: 5px;
+  /* float: right; */
+  right: 10px;
+  bottom: 20px;
+}
+.submit_btn:focus {
+  outline: none;
+}
+.size {  /*그림 사이즈*/
+  text-align: right;
+  padding-right: 5%;
+  color: #A0CDC5;
+  font-size: 14px;
+}
+.view {  /*학교 관련 내용*/
+  text-align: left;
+  padding-left: 5%;
+  color: #A0CDC5;
+  font-size: 14px;
+}
+@media screen and (min-width: 768px) {  /*아이패드 크기*/
+  .aside_nav {
+    display: none;
+  }
+}
+@media screen and (min-width: 992px) {
+  .aside_nav {
+    display: none;
+  }
+  .exhibitor, .piece_name {
+    font-size: 16px;
+  }
+  .explanation {
+    font-size: 15px;
+  }
+  .share, .bookmark {
+    margin: 10px;
+    font-size: 20px;
+  }
+  .size {
+    font-size: 13px;
+  }
+
+}
