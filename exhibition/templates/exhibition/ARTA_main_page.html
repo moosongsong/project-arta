@@ -1,0 +1,64 @@
+{% extends 'exhibition/ARTA_header.html' %}
+{% load static %}
+{% block header_title %}<title>ARTA 메인페이지</title>{% endblock %}
+
+{% block script_blcok %}{% endblock %}
+{% block style_blcok %}
+    <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'exhibition/css/exhibition_list_style.css' %}"/>
+    <style>
+        .article_container {
+            border: 0;
+        }
+
+        .main_page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+            margin: 0 auto;
+        }
+
+        .main_logo {
+            width: 100%;
+        {#width: 225px;#}{#height: 74px;#}
+
+        }
+
+        .aside_container {
+            display: none;
+        }
+
+        @media screen and (min-width: 992px) {
+            .main_logo {
+                width: 100%;
+            {#width: 520px;#}{#width: 225px;#}{#height: 170px;#}
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block main_blcok %}
+    <div class="row">
+        <div class="content_container col-xs-12">
+            <div class="article_container">
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p><br/>
+                    {% endfor %}
+                {% endif %}
+                <div class="main_page">
+                    {#                    <img class="main_logo" src="{% static 'exhibition/images/민트로고.png' %}" alt="ARTA">#}
+                    <a href="/exhibition/">
+                        <img class="main_logo" src="{% static 'exhibition/images/전시회포스터1.jpg' %}" alt="fine">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="footer col-xs-12" style="height: 40px;">
+
+        </div>
+    </div>
+{% endblock %}
