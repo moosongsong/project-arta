@@ -20,19 +20,14 @@
         }
 
         .main_logo {
-            width: 100%;
-        {#width: 225px;#}{#height: 74px;#}
-
-        }
-
-        .aside_container {
-            display: none;
+            width: 225px;
+            height: 74px;
         }
 
         @media screen and (min-width: 992px) {
             .main_logo {
-                width: 100%;
-            {#width: 520px;#}{#width: 225px;#}{#height: 170px;#}
+                width: 520px;
+                height: 170px;
             }
         }
     </style>
@@ -48,9 +43,8 @@
                     {% endfor %}
                 {% endif %}
                 <div class="main_page">
-                    {#                    <img class="main_logo" src="{% static 'exhibition/images/민트로고.png' %}" alt="ARTA">#}
                     <a href="/exhibition/">
-                        <img class="main_logo" src="{% static 'exhibition/images/전시회포스터1.jpg' %}" alt="fine">
+                        <img class="main_logo" src="{% static 'exhibition/images/민트로고.png' %}" alt="ARTA">
                     </a>
                 </div>
             </div>

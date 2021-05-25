@@ -28,6 +28,12 @@ class SinglePage:
             'exhibition/ARTA_User_login_kakao.html'
         )
 
+    def search_page(request):
+        return render(
+            request,
+            'exhibition/ARTA_search_page.html',
+        )
+
 
 class ExhibitionList(ListView):
     model = Exhibition
@@ -96,7 +102,7 @@ class PieceDetail(DetailView):
 
 
 class CommentManage:
-    def new_comment(request, pk):
+    def create_comment(request, pk):
         if request.user.is_authenticated:
             piece = get_object_or_404(Piece, pk=pk)
 
@@ -122,7 +128,7 @@ class CommentManage:
 
 
 class GuestbookManage:
-    def new_guestbook(request, pk):
+    def create_guestbook(request, pk):
         if request.user.is_authenticated:
             exhibition = get_object_or_404(Exhibition, pk=pk)
 
@@ -249,14 +255,6 @@ class PieceSearch(ListView):
         q = self.kwargs['q']
         context['search_info'] = f'{q}'
         return context
-
-
-class SearchPage:
-    def search_page(request):
-        return render(
-            request,
-            'exhibition/ARTA_search_page.html',
-        )
 
 
 class CategoryManage:

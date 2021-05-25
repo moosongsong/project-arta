@@ -7,8 +7,8 @@
 
     <!--Insert title here-->
     {% block header_title %}<title>header</title>{% endblock %}
-    <link rel=" shortcut icon" href="{% static 'exhibition/assets/favicon.ico' %}">
-    <link rel="icon" href="{% static 'exhibition/assets/favicon.ico' %}">
+{#    <link rel=" shortcut icon" href="{% static 'exhibition/assets/favicon.ico' %}">#}
+{#    <link rel="icon" href="{% static 'exhibition/assets/favicon.ico' %}">#}
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -195,11 +195,9 @@
             <div class="menu">
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    {#                    <a href="/"><img class="menu_logo" src="{% static 'exhibition/images/민트로고.png' %}" alt="ARTA"></a>#}
-                    <a href="/"><img class="menu_logo" src="{% static 'exhibition/images/타이틀.png' %}" alt="ARTA"></a>
+                    <a href="/"><img class="menu_logo" src="{% static 'exhibition/images/민트로고.png' %}" alt="ARTA"></a>
                     <a href="/about/">소개 <small>about us</small></a>
-                    <a href="/credit/">크레딧 <small>credit</small></a>
-                    <a href="/exhibition">전시회 <small>exhibition</small></a>
+                    <a href="/exhibition/">전시회 <small>exhibition</small></a>
                     {% if user.is_authenticated %}
                         <a href="/preference/">좋아요 <small>like page</small></a>
                         <a href="/accounts/logout/">로그아웃 <small>log out</small></a>
@@ -212,8 +210,7 @@
                 <span class="menu_icon" style="cursor:pointer" onclick="openNav()">&#9776; </span>
             </div>
             <div class="header"> <!--로고-->
-                {#                <a href="/"><img class="logo" src="{% static 'exhibition/images/민트로고.png' %}" alt="ARTA"></a>#}
-                <a href="/"><img class="logo" src="{% static 'exhibition/images/타이틀.png' %}" alt="ARTA"></a>
+                <a href="/"><img class="logo" src="{% static 'exhibition/images/민트로고.png' %}" alt="ARTA"></a>
             </div>
             <div class="search"> <!--검색창-->
                 <a href="/search/" class="btn-default">
