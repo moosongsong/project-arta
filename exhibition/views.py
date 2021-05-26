@@ -6,7 +6,6 @@ from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from random import *
 
 
 class SinglePage:
@@ -37,7 +36,6 @@ class SinglePage:
 
 class ExhibitionList(ListView):
     model = Exhibition
-    ordering = '-pk'
     paginate_by = 4
     template_name = 'exhibition/ARTA_User_exhibition_list.html'
 
