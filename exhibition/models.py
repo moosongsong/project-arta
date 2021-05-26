@@ -3,9 +3,19 @@ from django.contrib.auth.models import User
 import os
 
 
+class ExhibitionMode(models.Model):
+    name = models.CharField(max_length=50, unique=True, null=False)
+    slug = models.SlugField(max_length=50, unique=True, allow_unicode=True, null=False)
+
+    def get_absolute_url(self):
+        return f'/exhibition/mode/{self.slug}/'
+
+    def __str__(self):
+        return self.name
+
+
 class Category(models.Model):
-    bigName = models.CharField(max_length=50, unique=False, null=False)
-    smallName = models.CharField(max_length=50, unique=True, null=False)
+    name = models.CharField(max_length=50, unique=True, null=False)
     slug = models.SlugField(max_length=50, unique=True, allow_unicode=True, null=False)
     image = models.ImageField(upload_to='category_images/', null=True, blank=True)
 
@@ -13,7 +23,7 @@ class Category(models.Model):
         return f'/exhibition/category/{self.slug}/'
 
     def __str__(self):
-        return self.smallName
+        return self.name
 
     class Meta:
         verbose_name_plural = 'categories'
@@ -21,6 +31,7 @@ class Category(models.Model):
 
 class Material(models.Model):
     name = models.CharField(max_length=50, null=False)
+    image = models.ImageField(upload_to='material_images/', null=True, blank=True)
     slug = models.SlugField(max_length=200, unique=True, allow_unicode=True, null=False)
 
     def __str__(self):
@@ -35,11 +46,11 @@ class Exhibition(models.Model):
     explain = models.TextField(null=False, blank=False)
     poster = models.ImageField(upload_to='exhibition/%Y/%m/%d/', blank=True, null=True)
     create_at = models.DateTimeField(auto_now_add=True)
-    remove_at = models.DateTimeField(null=True, blank=True)
     start_at = models.DateTimeField(null=True, blank=True)
     end_at = models.DateTimeField(null=True, blank=True)
     click_count = models.IntegerField(default=0)
 
+    mode = models.ForeignKey(ExhibitionMode, on_delete=models.SET_NULL, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL, blank=True)
 
@@ -61,14 +72,12 @@ class Piece(models.Model):
     size = models.CharField(max_length=100, null=False, blank=False)
     author = models.CharField(max_length=50, null=False, blank=False)
     create_at = models.DateTimeField(auto_now_add=True, null=False)
-    make_date = models.DateTimeField(auto_now=True, null=False)
-    remove_at = models.DateTimeField(null=True, blank=True)
+    make_at = models.DateTimeField(null=True, blank=True)
     order = models.IntegerField(null=True, blank=True)
     click_count = models.IntegerField(default=0)
     major = models.CharField(max_length=10, null=True, blank=True)
-    number = models.IntegerField(null=True, blank=True)
+    student_number = models.IntegerField(null=True, blank=True)
 
-    category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL, blank=True)
     material = models.ForeignKey(Material, null=True, on_delete=models.SET_NULL, blank=True)
     exhibition = models.ForeignKey(Exhibition, null=True, on_delete=models.SET_NULL, blank=True)
 

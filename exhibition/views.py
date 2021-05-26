@@ -38,17 +38,13 @@ class SinglePage:
 class ExhibitionList(ListView):
     model = Exhibition
     ordering = '-pk'
-    paginate_by = 5
+    paginate_by = 4
     template_name = 'exhibition/ARTA_User_exhibition_list.html'
 
     def get_context_data(self, **kwargs):
-        #
-        i = randint(1, 2)
-        #
         context = super(ExhibitionList, self).get_context_data()
         context['categories'] = Category.objects.all()
         context['category_name'] = '전체'
-        context['randnum'] = i
         return context
 
 
@@ -204,7 +200,13 @@ class LikePieceList(ListView):
     template_name = 'exhibition/ARTA_LikePage.html'
     paginate_by = 8
 
+    def get_queryset(self):
+        user = self.request.user
+        piece_like_list = PieceLike.objects.filter(user=user)
+        return piece_like_list
+
     def get_context_data(self, **kwargs):
+
         context = super(LikePieceList, self).get_context_data()
         context['mode'] = '작품'
         return context
@@ -214,6 +216,11 @@ class LikeExhibitionList(ListView):
     model = ExhibitionLike
     template_name = 'exhibition/ARTA_LikePage.html'
     paginate_by = 8
+
+    def get_queryset(self):
+        user = self.request.user
+        exhibition_like_list = ExhibitionLike.objects.filter(user=user)
+        return exhibition_like_list
 
     def get_context_data(self, **kwargs):
         context = super(LikeExhibitionList, self).get_context_data()
