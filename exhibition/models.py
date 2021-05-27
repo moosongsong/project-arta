@@ -93,7 +93,6 @@ class GuestBook(models.Model):
     exhibition = models.ForeignKey(Exhibition, on_delete=models.SET_NULL, null=True, blank=True)
     content = models.TextField(null=False, blank=False)
     create_at = models.DateTimeField(auto_now_add=True, null=False)
-    remove_at = models.DateTimeField(null=True, blank=True)
 
     def get_absolute_url(self):
         return f'/exhibition/{self.exhibition.pk}/'
@@ -104,7 +103,6 @@ class Comment(models.Model):
     piece = models.ForeignKey(Piece, on_delete=models.SET_NULL, null=True, blank=True)
     content = models.TextField(null=False, blank=False)
     create_at = models.DateTimeField(auto_now_add=True, null=False)
-    remove_at = models.DateTimeField(null=True, blank=True)
 
     def get_absolute_url(self):
         return f'/exhibition/piece/{self.piece.pk}/'
