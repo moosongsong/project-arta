@@ -74,8 +74,8 @@
                     <div class="form-group">
                         <p class="piece_name col-xs-6">{{ piece.name }}</p>
                         <p class="exhibitor col-xs-6">{{ piece.author }}&nbsp;
-                            {% if piece.remove_at %}
-                            ({{ piece.remove_at.year }}作)
+                            {% if piece.make_at %}
+                            ({{ piece.make_at.year }}作)
                             {% endif %}
                         </p>
                     </div>
@@ -110,12 +110,6 @@
                 <div class="row">
                     <div class="piece_size">
                         <p class="size">{{ piece.material.name }}</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="piece_size">
-                        <p class="size">{{ piece.major }} ( {{ piece.number }} )</p>
                     </div>
                 </div>
 

@@ -39,6 +39,10 @@ class ExhibitionList(ListView):
     paginate_by = 4
     template_name = 'exhibition/ARTA_User_exhibition_list.html'
 
+    def get_queryset(self):
+        exhibition_list = Exhibition.objects.all().order_by('end_at')
+        return exhibition_list
+
     def get_context_data(self, **kwargs):
         context = super(ExhibitionList, self).get_context_data()
         context['categories'] = Category.objects.all()
@@ -48,7 +52,7 @@ class ExhibitionList(ListView):
 
 class PieceList(ListView):
     model = Piece
-    paginate_by = 12
+    paginate_by = 8
     template_name = 'exhibition/ARTA_User_exhibition_show.html'
 
     def get_queryset(self):
@@ -200,11 +204,10 @@ class LikePieceList(ListView):
 
     def get_queryset(self):
         user = self.request.user
-        piece_like_list = PieceLike.objects.filter(user=user)
+        piece_like_list = PieceLike.objects.filter(user=user).order_by('pk')
         return piece_like_list
 
     def get_context_data(self, **kwargs):
-
         context = super(LikePieceList, self).get_context_data()
         context['mode'] = '작품'
         return context
@@ -217,7 +220,7 @@ class LikeExhibitionList(ListView):
 
     def get_queryset(self):
         user = self.request.user
-        exhibition_like_list = ExhibitionLike.objects.filter(user=user)
+        exhibition_like_list = ExhibitionLike.objects.filter(user=user).order_by('pk')
         return exhibition_like_list
 
     def get_context_data(self, **kwargs):
@@ -273,6 +276,21 @@ class CategoryManage:
                 'exhibition_list': Exhibition.objects.filter(category=category),
                 'categories': Category.objects.all(),
                 'category_name': category,
+            }
+        )
+
+
+class MaterialManage:
+    def meterial_page(request, slug):
+        material = Material.objects.get(slug=slug)
+
+        return render(
+            request,
+            'exhibition/ARTA_User_exhibition_show.html',
+            {
+                'piece_list': Piece.objects.filter(material=material),
+                'materials': Material.objects.all(),
+                'material_name': material,
             }
         )
 

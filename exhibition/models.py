@@ -46,8 +46,8 @@ class Exhibition(models.Model):
     explain = models.TextField(null=False, blank=False)
     poster = models.ImageField(upload_to='exhibition/%Y/%m/%d/', blank=True, null=True)
     create_at = models.DateTimeField(auto_now_add=True)
-    start_at = models.DateTimeField(null=True, blank=True)
-    end_at = models.DateTimeField(null=True, blank=True)
+    start_at = models.DateField(null=True, blank=True)
+    end_at = models.DateField(null=True, blank=True)
     click_count = models.IntegerField(default=0)
 
     mode = models.ForeignKey(ExhibitionMode, on_delete=models.SET_NULL, null=True, blank=True)

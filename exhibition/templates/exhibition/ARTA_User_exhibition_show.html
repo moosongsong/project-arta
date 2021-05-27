@@ -195,7 +195,7 @@
                     <div class="exhibition_poster">
                         <img class="exhibition_img" src="{{ exhibition.poster.url }}" alt="포스터가 등록되지 않았습니다."/>
                         <div class="exhibition_info">
-                            <p class="exhibit_day">{{ exhibition.start_at.date }} ~ {{ exhibition.end_at.date }}</p>
+                            <p class="exhibit_day">{{ exhibition.start_at }} ~ {{ exhibition.end_at }}</p>
                             <p class="exhibitor"><i class="fas fa-eye"></i> {{ exhibition.click_count }}</p><br/>
                             <p class="exhibition_name"><strong>{{ exhibition.name }}</strong></p>
                             <p class="exhibit_day">{{total}}개의 작품이 전시중이에요!</p><br/>
