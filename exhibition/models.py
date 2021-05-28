@@ -60,8 +60,18 @@ class Exhibition(models.Model):
     def get_absolute_url(self):
         return f'/exhibition/{self.pk}/'
 
-    def get_file_name(self):
-        return os.path.basename(self.poster.name)
+
+class ExternalExhibition(models.Model):
+    exhibition = models.ForeignKey(Exhibition, on_delete=models.CASCADE, null=False, blank=False)
+    location_x = models.FloatField(null=False, blank=True, default=0.0)
+    location_y = models.FloatField(null=False, blank=True, default=0.0)
+    web_url = models.CharField(max_length=1000, null=True, blank=True)
+
+    def __str__(self):
+        return f'out : {self.exhibition.name}'
+
+    def get_absolute_url(self):
+        return f'/exhibition/{self.pk}/'
 
 
 class Piece(models.Model):
