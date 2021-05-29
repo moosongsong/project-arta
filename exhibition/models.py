@@ -63,6 +63,7 @@ class Exhibition(models.Model):
 
 class ExternalExhibition(models.Model):
     exhibition = models.ForeignKey(Exhibition, on_delete=models.CASCADE, null=False, blank=False)
+    location_address = models.CharField(max_length=1000, null=True, blank=True)
     location_x = models.FloatField(null=False, blank=True, default=0.0)
     location_y = models.FloatField(null=False, blank=True, default=0.0)
     web_url = models.CharField(max_length=1000, null=True, blank=True)

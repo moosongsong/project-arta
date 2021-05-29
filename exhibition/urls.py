@@ -29,6 +29,6 @@ urlpatterns = [
     path('exhibition/piece/<int:ak>/dislike/<int:pk>/', views.LikeManage.piece_dislike),
 
     # 사용 보류
-    path('exhibition/<int:pk>/share/', views.ShareManage.exhibition_share),
-    path('exhibition/piece/<int:pk>/share/', views.ShareManage.piece_share),
+    # path('exhibition/<int:pk>/share/', views.ShareManage.exhibition_share),
+    # path('exhibition/piece/<int:pk>/share/', views.ShareManage.piece_share),
 ]
