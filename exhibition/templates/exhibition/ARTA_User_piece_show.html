@@ -147,7 +147,6 @@
                         <form id="comment-form" method="post" action="{{ piece.get_absolute_url }}new_comment/">
                             {% csrf_token %}
                             <div class="input-comment">
-                                <!-- <div class="user_name">사용자 이름</div> -->
                                 <label for="new-comment"></label>
                                 <textarea id="new-comment" class="form-control" name="content" rows="2"
                                           placeholder="댓글을 입력해주세요"></textarea>
