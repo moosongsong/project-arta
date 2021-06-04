@@ -1,0 +1,102 @@
+{% extends 'exhibition/ARTA_header.html' %}
+{% load static %}
+{% block header_title %}<title>전시자 - 전시회 목록</title>{% endblock %}
+
+{% block script_blcok %}
+{% endblock %}
+
+{% block style_blcok %}
+    <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'exhibition/css/exhibition_list_style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'exhibition/css/pagination.css' %}"/>
+
+    <style>
+        .exhibition_edit {
+            display: inline-block;
+            background: #5CA4A2;
+            color: white;
+            font-size: 10px;
+            padding: 2px 2px 2px 2px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .exhibition_edit:visited,
+        .exhibition_edit:hover,
+        .exhibition_edit:active {
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+{% endblock %}
+
+{% block main_blcok %}
+    <div class="row">
+        <div class="aside_container col-md-1 col-md-push-11">
+            <div id="category_list"></div>
+            <a class="exhibition_edit" href="내가 만든 전시회 목록만 보이는 화면...">edit</a>
+        </div>
+        <div class="content_container col-md-11 col-md-pull-1">
+            <div class="article_container">
+                <article>
+                    <h2>전시회 리스트1</h2>
+                    <a href="./artist_exhibition_show.html">
+                        <img class="exhibition_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="전시회1 포스터"/>
+                    </a>
+                    <a href="./artist_exhibition_show.html">
+                        <p class="exhibitor">전시자명</p>
+                    </a>
+                    <a href="./artist_exhibition_show.html">
+                        <p class="exhibition_name">전시회 이름</p>
+                    </a>
+                </article>
+                <article>
+                    <h2>전시회 리스트2</h2>
+                    <a href="#">
+                        <img class="exhibition_img" src="https://i.imgur.com/YBIac9k.jpg" alt="전시회2 포스터"/>
+                    </a>
+                    <a href="#">
+                        <p class="exhibitor">전시자명</p>
+                    </a>
+                    <a href="#">
+                        <p class="exhibition_name">전시회 이름</p>
+                    </a>
+                </article>
+                <article>
+                    <h2>전시회 리스트3</h2>
+                    <a href="#">
+                        <img class="exhibition_img"
+                             src="https://newsimg.hankookilbo.com/cms/articlerelease/2018/10/26/201810260888392821_1.jpg"
+                             alt="전시회3 포스터"/>
+                    </a>
+                    <a href="#">
+                        <p class="exhibitor">전시자명</p>
+                    </a>
+                    <a href="#">
+                        <p class="exhibition_name">전시회 이름</p>
+                    </a>
+                </article>
+                <article>
+                    <h2>전시회 리스트4</h2>
+                    <a href="#">
+                        <img class="exhibition_img"
+                             src="http://img.sportsworldi.com/content/image/2020/11/05/20201105519244.jpg"
+                             alt="전시회4 포스터"/>
+                    </a>
+                    <a href="#">
+                        <p class="exhibitor">전시자명</p>
+                    </a>
+                    <a href="#">
+                        <p class="exhibition_name">전시회 이름</p>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="footer col-xs-12"> <!--아래 페이징 공간-->
+            <h2>footer</h2>
+        </div>
+    </div>
+{% endblock %}

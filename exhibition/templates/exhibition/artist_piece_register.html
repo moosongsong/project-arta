@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ARTA 작품 등록</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/artist_piece_register.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com"> <!--font-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"><!--font-->
+
+    <script type="text/javascript">$(document).ready( function() {$("#header").load("./arta_header.html");});</script>
+</head>
+
+
+<body>
+<div class="container-fluid">
+  <header id="header"></header>
+
+    <div class="row">
+        <div class="aside_container col-md-1 col-md-push-11">
+          <ul class="category_list">
+              <li>
+                <a href="artist_exhibition_register.html">전시회 등록</a><br  />
+                <a href="artist_piece_register.html">작품 등록</a><br  />
+                <a href="artist_exhibition_modify.html">전시회 관리</a><br  />
+                <a href="artist_piece_modify.html">작품 관리</a>
+              </li>
+          </ul>
+            <p class="piece_register">작품 등록</p>
+        </div>
+        <div class="content_container col-md-11 col-md-pull-1">
+            <div class="article_container">
+              <div class="col-sm-8">
+                <div class="landing_page">
+                  <form class="form-signin">
+                    <h4 class="form-signin-heading">작품 등록</h4>
+                    <div class="row">
+                      <div class="form-group name col-xs-12">
+                        <label for="piece_name">작품명</label>
+                        <input type="text" class="form-control" id="piece_name">
+                      </div>
+                    </div>
+                    <div class="row row_content">
+                      <div class="form-group col-xs-12">
+                        <label for="real_input">이미지 업로드</label>
+                        <input type="file" class="image_inputType_file" id="real_input"  accpet="img/*">
+                      </div>
+                    </div>
+                    <div class="row row_content">
+                      <div class="form-group col-xs-12">
+                        <label for="piece_explain">작품 소개</label>
+                        <textarea class="form-control" rows="3" id="piece_explain"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="row row_content">
+                      <div class="form-group col-xs-6">
+                        <label for="exhibitor">작가</label>
+                        <input type="text" class="form-control" id="exhibitor">
+                      </div>
+                      <div class="form-group col-xs-6">
+                        <label for="priority">우선순위</label>
+                        <input type="number" class="form-control" id="priority">
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="mark_checkbox col-xs-12">
+                        <form>
+                          <div class="piece_style">
+                            <label class="piece_style">화풍</label>
+                          </div>
+
+                          <label class="checkbox-inline">
+                            <input type="checkbox" id="cb1" value="">시각
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="checkbox" id="cb1" value="">산업
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="checkbox" id="cb1" value="">건축
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="checkbox" id="cb1" value="">패션
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="checkbox" id="cb1" value="">공예
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="checkbox" id="cb1" value="">예술
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="checkbox" id="cb1" value="">영상
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="checkbox" id="cb1" value="">게임
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="checkbox" id="cb1" value="">기타
+                          </label>
+                        </form>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="piece_material col-xs-12 col-sm-6">
+                        <form>
+                          <label for="material_list">재료</label>
+                          <select class="form-control" id="sel1">
+                            <option>--------------------------</option>
+                            <option>아크릴물감</option>
+                            <option>수채물감</option>
+                            <option>유화물감</option>
+                            <option>동양화물감</option>
+                            <option>포스터칼라</option>
+                            <option>연필</option>
+                            <option>목탄/콘테</option>
+                            <option>색연필</option>
+                            <option>파스텔</option>
+                            <option>마카</option>
+                            <option>스프레이</option>
+                            <option>타블렛</option>
+                            <option>펠트</option>
+                            <option>점토</option>
+                            <option>대리석</option>
+                            <option>금속</option>
+                            <option>비누</option>
+                            <option>목판</option>
+                            <option>석고</option>
+                            <option>기타</option>
+                          </select>
+                        </form>
+                      </div>
+                    </div>
+
+                    <div class="row row_content">
+                      <div class="form-group col-xs-6">
+                        <button id="cancel_btn" class="btn btn-block">취소</button>
+                      </div>
+                      <div class="form-group col-xs-6">
+                        <button id="register_btn" class="btn btn-block">등록</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="footer col-xs-12"> <!--아래 페이징 공간-->
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

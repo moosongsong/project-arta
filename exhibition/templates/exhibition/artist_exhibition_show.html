@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>전시회 보기</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">    <!--font-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/exhibition_show_style.css" />
+</head>
+
+<script type="text/javascript">
+    $(document).ready( function() {
+        $("#header").load("./arta_header.html");
+        $("#category_list").load("./category_list.html");
+    });
+</script>
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("mySidenav").style.borderRight = "2px solid #5CA4A2";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("mySidenav").style.borderRight = "none";
+    }
+</script>
+
+<style>
+    .exhibition_edit{
+        display: inline-block;
+        background: #5CA4A2;
+        color: white;
+        font-size: 10px;
+        padding: 2px 2px 2px 2px;
+        border-radius: 6px;
+        text-decoration: none;
+    }
+
+    .exhibition_edit:visited,
+    .exhibition_edit:hover,
+    .exhibition_edit:active {
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+    }
+</style>
+
+<body>
+<div class="container-fluid">
+    <header id = "header"></header>
+    <div class="row">
+        <div class="aside_container col-md-1 col-md-push-11">
+            <div id="category_list"></div>
+            <a class="exhibition_edit" href="./artist_exhibition_modify.html">edit</a>
+        </div>
+        <div class="content_container col-md-11 col-md-pull-1">
+            <div class="article_container">
+                <article>
+                    <h2>전시회 페이지</h2>
+                    <img class= "exhibition_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="전시회1 포스터"/>
+                    <p><strong>작가이름</strong></p>
+                    <p><strong>제목</strong></p>
+                    <p>전시회 설명입니다. 이 전시회는 어떤어떤 곳에서 어떠한 이유로 개최되었고 이러이러한 작품들을 전시하고 있습니다.</p>
+                </article>
+                <div>
+                    <div class="piece_container">
+                    <a href="#">
+                        <img class= "piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
+                    </a>
+                    <a href="#">
+                        <img class= "piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
+                    </a>
+                    <a href="#">
+                        <img class= "piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
+                    </a>
+
+                    <a href="#">
+                        <img class= "piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
+                    </a>
+                    <a href="#">
+                        <img class= "piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
+                    </a>
+                    <a href="#">
+                        <img class= "piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
+                    </a>
+
+                    <a href="#">
+                        <img class= "piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
+                    </a>
+                    <a href="#">
+                        <img class= "piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
+                    </a>
+                    <a href="#">
+                        <img class= "piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
+                    </a>
+
+                    <a href="#">
+                        <img class= "piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
+                    </a>
+                    <a href="#">
+                        <img class= "piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
+                    </a>
+                    <a href="#">
+                        <img class= "piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
+                    </a>
+                    </div>
+                    <a href="before_page">
+                        <p class="page_lbt">&#60; before</p>
+                    </a>
+                    <a href="before_page">
+                        <p class="page_rbt">next &#62;</p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="footer col-xs-12"> <!--아래 페이징 공간-->
+            <h2>footer</h2>
+        </div>
+    </div>
+</div>
+</body>
+</html>

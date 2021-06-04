@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>전시회 등록</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">    <!--font-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/exhibition_register_style.css" />
+</head>
+
+<script type="text/javascript">
+    $(document).ready( function() {
+        $("#header").load("./arta_header.html");
+    });
+</script>
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("mySidenav").style.borderRight = "2px solid #5CA4A2";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("mySidenav").style.borderRight = "none";
+    }
+</script>
+
+<body>
+<div class="container-fluid">
+    <header id = "header"></header>
+    <div class="row">
+        <div class="aside_container col-md-1 col-md-push-11">
+            <p><strong>전시회 등록</strong></p>
+        </div>
+        <div class="content_container col-md-11 col-md-pull-1">
+            <div class="article_container">
+                <div>
+                    <label for="ex_id">전시회명</label>
+                    <p>필수 입력사항</p>
+                    <input type="text" id="ex_id" required placeholder="필수 입력사항"/>
+                </div>
+                <div>
+                    <label for="ex_con">전시회 소개</label>
+                    <p>필수 입력사항</p>
+                    <textarea id="ex_con"></textarea>
+                </div>
+                <div>
+                    <p> 운영기간 </p>
+                    <form>
+                        <label for="ex_open" >운영기간</label>
+                        <input type="date" id="ex_open"/>
+                        <span>-</span>
+                        <label for="ex_close">운영기간</label>
+                        <input type="date" id="ex_close"/>
+                    </form>
+                </div>
+                <div>
+                    <p>전시회 포스터</p>
+                    <input type="file" accept="image/*"/>
+                </div>
+                <div>
+                    <p>카테고리</p>
+                    <form>
+                        <input type="checkbox" name="categorys" value="1_cb" id="1_cb"/>
+                        <label for="1_cb">시각</label>
+                        <input type="checkbox" name="categorys" value="2_cb" id="2_cb"/>
+                        <label for="2_cb">산업</label>
+                        <input type="checkbox" name="categorys" value="3_cb" id="3_cb"/>
+                        <label for="3_cb">건축</label>
+                        <input type="checkbox" name="categorys" value="4_cb" id="4_cb"/>
+                        <label for="4_cb">패션</label>
+                        <input type="checkbox" name="categorys" value="5_cb" id="5_cb"/>
+                        <label for="5_cb">공예</label>
+                        <input type="checkbox" name="categorys" value="6_cb" id="6_cb"/>
+                        <label for="6_cb">예술</label>
+                        <input type="checkbox" name="categorys" value="7_cb" id="7_cb"/>
+                        <label for="7_cb">영상</label>
+                        <input type="checkbox" name="categorys" value="8_cb" id="8_cb"/>
+                        <label for="8_cb">게임</label>
+                        <input type="checkbox" name="categorys" value="9_cb" id="9_cb"/>
+                        <label for="9_cb">기타</label>
+                    </form>
+                </div>
+                <div>
+                    <button>취소</button>
+                    <button>등록</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
