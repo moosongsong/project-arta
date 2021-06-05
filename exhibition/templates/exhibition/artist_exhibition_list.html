@@ -3,6 +3,30 @@
 {% block header_title %}<title>전시자 - 전시회 목록</title>{% endblock %}
 
 {% block script_blcok %}
+     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                $('.exhibition_action').each(function (i) {
+                    var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+                    var top_of_object = $(this).offset().top;
+                    var middle_of_window = $(window).scrollTop() + $(window).height() / 2;
+                    var windowWidth = $(window).width();
+
+                    if (windowWidth < 992 && middle_of_window > top_of_object && middle_of_window < bottom_of_object) {
+                        //$(this).animate({'opacity':'1','margin-left':'0px'},500);
+                        if ($(this).css("opacity") == 0) {
+                            $(this).fadeTo(500, 1);
+                        }
+                    } else { //object goes out of view (scrolling up)
+                        if ($(this).css("opacity") == 1) {
+                            $(this).fadeTo(500, 0);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 {% endblock %}
 
 {% block style_blcok %}
@@ -34,69 +58,162 @@
 {% block main_blcok %}
     <div class="row">
         <div class="aside_container col-md-1 col-md-push-11">
-            <div id="category_list"></div>
+            <!--category-->
+            <div id="category_list">
+                <h2 class="h_name">CATEGORY</h2>
+                <ul class="category_list">
+                    {% if category_name == '전체' %}
+                        <li>
+                            <a href="/exhibition/" class="list_bold">전체</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="/exhibition/">전체</a>
+                        </li>
+                    {% endif %}
+                    {% if categories.exists %}
+                        {% for category in categories %}
+                            {% if category.slug == category_name.slug %}
+                                <li><a href="{{ category.get_absolute_url }}"
+                                       class="list_bold">{{ category.name }}</a></li>
+                            {% else %}
+                                <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
             <a class="exhibition_edit" href="내가 만든 전시회 목록만 보이는 화면...">edit</a>
         </div>
+
+        <!--exhibition list-->
         <div class="content_container col-md-11 col-md-pull-1">
             <div class="article_container">
-                <article>
+                <div class="article_block">
+                    <div class="exhibition_img_block">
+                        <a href="#">
+                            <img class="exhibition_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="전시회1 포스터"/>
+                            <div class="exhibition_action">
+                                <p>전시회 명</p>
+                            </div>
+                        </a>
+                    </div>
                     <h2>전시회 리스트1</h2>
                     <a href="./artist_exhibition_show.html">
-                        <img class="exhibition_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="전시회1 포스터"/>
+                        <p class="exhibitor">전시자명</p>
                     </a>
+                    <a href="./artist_exhibition_show.html">
+                        <p class="exhibition_name">전시회 이름</p>
+                    </a>
+                </div>
+                <div class="article_block">
+                    <div class="exhibition_img_block">
+                        <a href="#">
+                            <img class="exhibition_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="전시회1 포스터"/>
+                            <div class="exhibition_action">
+                                <p>전시회 명</p>
+                            </div>
+                        </a>
+                    </div>
+                    <h2>전시회 리스트1</h2>
                     <a href="./artist_exhibition_show.html">
                         <p class="exhibitor">전시자명</p>
                     </a>
                     <a href="./artist_exhibition_show.html">
                         <p class="exhibition_name">전시회 이름</p>
                     </a>
-                </article>
-                <article>
-                    <h2>전시회 리스트2</h2>
-                    <a href="#">
-                        <img class="exhibition_img" src="https://i.imgur.com/YBIac9k.jpg" alt="전시회2 포스터"/>
-                    </a>
-                    <a href="#">
+                </div>
+                <div class="article_block">
+                    <div class="exhibition_img_block">
+                        <a href="#">
+                            <img class="exhibition_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="전시회1 포스터"/>
+                            <div class="exhibition_action">
+                                <p>전시회 명</p>
+                            </div>
+                        </a>
+                    </div>
+                    <h2>전시회 리스트1</h2>
+                    <a href="./artist_exhibition_show.html">
                         <p class="exhibitor">전시자명</p>
                     </a>
-                    <a href="#">
+                    <a href="./artist_exhibition_show.html">
                         <p class="exhibition_name">전시회 이름</p>
                     </a>
-                </article>
-                <article>
-                    <h2>전시회 리스트3</h2>
-                    <a href="#">
-                        <img class="exhibition_img"
-                             src="https://newsimg.hankookilbo.com/cms/articlerelease/2018/10/26/201810260888392821_1.jpg"
-                             alt="전시회3 포스터"/>
-                    </a>
-                    <a href="#">
+                </div>
+                <div class="article_block">
+                    <div class="exhibition_img_block">
+                        <a href="#">
+                            <img class="exhibition_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="전시회1 포스터"/>
+                            <div class="exhibition_action">
+                                <p>전시회 명</p>
+                            </div>
+                        </a>
+                    </div>
+                    <h2>전시회 리스트1</h2>
+                    <a href="./artist_exhibition_show.html">
                         <p class="exhibitor">전시자명</p>
                     </a>
-                    <a href="#">
+                    <a href="./artist_exhibition_show.html">
                         <p class="exhibition_name">전시회 이름</p>
                     </a>
-                </article>
-                <article>
-                    <h2>전시회 리스트4</h2>
-                    <a href="#">
-                        <img class="exhibition_img"
-                             src="http://img.sportsworldi.com/content/image/2020/11/05/20201105519244.jpg"
-                             alt="전시회4 포스터"/>
-                    </a>
-                    <a href="#">
-                        <p class="exhibitor">전시자명</p>
-                    </a>
-                    <a href="#">
-                        <p class="exhibition_name">전시회 이름</p>
-                    </a>
-                </article>
+                </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="footer col-xs-12"> <!--아래 페이징 공간-->
-            <h2>footer</h2>
+        <div class="footer_row col-xs-12"> <!--아래 페이징 공간-->
+            <footer>
+                {% if is_paginated %}
+                    <p>- {{ page_obj.number }} -</p>
+                    <ul class="pagination pagination-sm">
+                        {% if page_obj.has_next %}
+                            {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link"
+                                                         href="?page={{ page_obj.previous_page_number }}">
+                                    <i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+                                <li class="page-item"><a class="page-fake" href="#">
+                                    <i class="" aria-hidden="true"></i></a></li>
+                                <li class="page-item"><a class="page-fake" href="#">
+                                    <i class="" aria-hidden="true"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-fake disabled" href="">
+                                    <i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+                                <li class="page-item"><a class="page-fake" href="#">
+                                    <i class="" aria-hidden="true"></i></a></li>
+                                <li class="page-item"><a class="page-fake" href="#">
+                                    <i class="" aria-hidden="true"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                            {% endif %}
+                        {% else %}
+                            {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link"
+                                                         href="?page={{ page_obj.previous_page_number }}">
+                                    <i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+                                <li class="page-item"><a class="page-fake" href="#">
+                                    <i class="" aria-hidden="true"></i></a></li>
+                                <li class="page-item"><a class="page-fake" href="#">
+                                    <i class="" aria-hidden="true"></i></a></li>
+                                <li class="page-item"><a class="page-fake disabled" href="">
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-fake disabled" href="">
+                                    <i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+                                <li class="page-item"><a class="page-fake" href="#">
+                                    <i class="" aria-hidden="true"></i></a></li>
+                                <li class="page-item"><a class="page-fake" href="#">
+                                    <i class="" aria-hidden="true"></i></a></li>
+                                <li class="page-item"><a class="page-fake disabled" href="">
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                            {% endif %}
+                        {% endif %}
+                    </ul>
+                {% else %}
+                    <div style="height: 50px;"></div>
+                {% endif %}
+            </footer>
         </div>
     </div>
 {% endblock %}

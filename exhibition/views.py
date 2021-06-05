@@ -33,6 +33,12 @@ class SinglePage:
             'exhibition/ARTA_search_page.html',
         )
 
+    def test_page(request):
+        return render(
+            request,
+            'exhibition/artist_exhibition_list.html',
+        )
+
 
 class ExhibitionList(ListView):
     model = Exhibition

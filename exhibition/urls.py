@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.SinglePage.landing_page),
     path('about/', views.SinglePage.about_page),
     path('login/', views.SinglePage.login_page),
+    path('test/', views.SinglePage.test_page),
 
     path('preference/', views.LikePieceList.as_view()),
     path('preference/piece/', views.LikePieceList.as_view()),
