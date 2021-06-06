@@ -1,38 +1,16 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>전시회 등록</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">    <!--font-->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/exhibition_register_style.css" />
-</head>
+{% extends 'exhibition/ARTA_header.html' %}
+{% load static %}
+{% block header_title %}<title>전시회 등록</title>{% endblock %}
 
-<script type="text/javascript">
-    $(document).ready( function() {
-        $("#header").load("./arta_header.html");
-    });
-</script>
-<script>
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("mySidenav").style.borderRight = "2px solid #5CA4A2";
-    }
+{% block script_blcok %}
+{% endblock %}
 
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("mySidenav").style.borderRight = "none";
-    }
-</script>
+{% block style_blcok %}
+    <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'exhibition/css/exhibition_register_style.css' %}" />
+{% endblock %}
 
-<body>
-<div class="container-fluid">
-    <header id = "header"></header>
+{% block main_blcok %}
     <div class="row">
         <div class="aside_container col-md-1 col-md-push-11">
             <p><strong>전시회 등록</strong></p>
@@ -93,6 +71,4 @@
             </div>
         </div>
     </div>
-</div>
-</body>
-</html>
+{% endblock %}
