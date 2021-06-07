@@ -36,7 +36,7 @@ class SinglePage:
     def test_page(request):
         return render(
             request,
-            'exhibition/artist_exhibition_register.html',
+            'exhibition/artist_exhibition_modify.html',
         )
 
 
