@@ -29,6 +29,20 @@ urlpatterns = [
     path('exhibition/piece/<int:pk>/new_like/', views.LikeManage.piece_like),
     path('exhibition/piece/<int:ak>/dislike/<int:pk>/', views.LikeManage.piece_dislike),
 
+    # path('manage/'),
+    # path('manage/exhibition/'),
+    # path('manage/exhibition/<int:pk>'),
+    # path('manage/exhibition/<int:pk>/update/'),
+    # path('manage/exhibition/<int:pk>/delete/'),
+    # path('manage/exhibition/register/'),
+
+    # path('manage/piece/'),
+    # path('manage/piece/<int:pk>'),
+    # path('manage/piece/register/<int:pk>'),
+    # path('manage/piece/update/<int:pk>'),
+    # path('manage/piece/delete/<int:pk>'),
+
+
     # 사용 보류
     # path('exhibition/<int:pk>/share/', views.ShareManage.exhibition_share),
     # path('exhibition/piece/<int:pk>/share/', views.ShareManage.piece_share),

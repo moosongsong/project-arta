@@ -318,3 +318,5 @@ class ShareManage:
             return redirect(piece.get_absolute_url())
         else:
             return PermissionDenied
+
+
