@@ -11,14 +11,16 @@
 {% block main_blcok %}
     <div class="row">
         <div class="aside_container col-md-1 col-md-push-11">
-            <p class="search_top">검색</p> <!--모바일 버전에서만 보임-->
+            <!--모바일 버전에서만 보임-->
+            <p class="search_top">검색</p>
         </div>
         <div class="content_container col-md-11 col-md-pull-1">
             <div class="article_container">
                 <div class="search_page">
-                    <div class="nav_search col-lg-3"> <!--search 부분 nav-->
+                    <!--search 부분 nav-->
+                    <div class="nav_search col-lg-3">
                         <label>
-{#                            <input type='radio' name='service_type' value='all'>전체#}
+                            {#                            <input type='radio' name='service_type' value='all'>전체#}
                             <input type='radio' name='service_type' value='exhibition'>전시회
                             <input type='radio' name='service_type' value='piece' checked="checked">그림
                         </label>
@@ -28,7 +30,7 @@
                         <input type="text" id="search-input" class="form-control"
                                placeholder="검색어를 입력해주세요" name="search">
                         <div class="input-group-btn">
-                            <button id="btn_click" class="btn search_btn" type="button" onclick="function serchPost() {
+                            <button id="btn_click" class="btn search_btn" type="button" onclick="function searchPost() {
                                 let searchValue = document.getElementById('search-input').value.trim();
 
                                 if (searchValue.length > 1){
@@ -39,7 +41,7 @@
                                     alert('검색어 ('+searchValue+')가 너무 짧습니다.');
                                 }
                                 }
-                                serchPost()">
+                                searchPost()">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </button>
                         </div>

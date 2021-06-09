@@ -24,7 +24,7 @@ class SinglePage:
     def login_page(request):
         return render(
             request,
-            'exhibition/ARTA_user_login_kakao_page.html'
+            'exhibition/ARTA_login_kakao_page.html'
         )
 
     def search_page(request):

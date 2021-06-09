@@ -36,9 +36,11 @@
             <p class="search_top">검색</p> <!--모바일 버전에서만 보이기-->
         </div>
         <div class="content_container col-md-11 col-md-pull-1">
-            <div class="article_container"> <!--내용-->
+            <!--내용-->
+            <div class="article_container">
                 <div class="search_page col-lg-9">
-                    <div class="nav_search col-lg-3"> <!--search 부분 nav-->
+                    <!--search 부분 nav-->
+                    <div class="nav_search col-lg-3">
                         <label>
                             {% if piece_list %}
                                 <input type='radio' name='service_type' value='exhibition'>전시회
@@ -71,7 +73,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="result_page"> <!--결과 페이지 : 모바일 2*4 / 웹 4*2 -->
+                        <!--결과 페이지 : 모바일 2*4 / 웹 4*2 -->
+                        <div class="result_page">
                             <p class="result_comment">"{{ search_info }}" 검색 결과입니다.</p>
                             {% if piece_list %}
                                 {% for piece in piece_list %}
@@ -104,7 +107,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="footer_row col-xs-12"> <!--아래 페이징 공간-->
+        <div class="footer_row col-xs-12">
+            <!--아래 페이징 공간-->
             <footer>
                 {% if is_paginated %}
                     <ul class="pagination pagination-sm">
