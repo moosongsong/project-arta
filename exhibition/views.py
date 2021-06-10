@@ -8,31 +8,37 @@ from django.contrib import messages
 from django.db.models import Q
 
 
+# 단일 페이지만 출력하는 모듈입니다.
 class SinglePage:
+    # 랜딩페이지를 출력하는 메소드
     def landing_page(request):
         return render(
             request,
             'exhibition/ARTA_main_page.html'
         )
 
+    # 서비스 소개페이지를 출력하는 메소드
     def about_page(request):
         return render(
             request,
             'exhibition/ARTA_introduction_page.html'
         )
 
+    # 로그인 페이지를 출력하는 메소드
     def login_page(request):
         return render(
             request,
             'exhibition/ARTA_login_kakao_page.html'
         )
 
+    # 검색페이지를 출력하는 메소드
     def search_page(request):
         return render(
             request,
             'exhibition/ARTA_search_page.html',
         )
 
+    # 테스트 페이지를 출력하는 메소드
     def test_page(request):
         return render(
             request,
@@ -40,6 +46,7 @@ class SinglePage:
         )
 
 
+# 전시회의 목록을 출력하는 클래스
 class ExhibitionList(ListView):
     model = Exhibition
     paginate_by = 4
@@ -56,6 +63,7 @@ class ExhibitionList(ListView):
         return context
 
 
+# 전시회의 작품들을 출력하는 클래스
 class PieceList(ListView):
     model = Piece
     paginate_by = 8
@@ -89,6 +97,7 @@ class PieceList(ListView):
         return context
 
 
+# 작품의 내용을 출력하는 클래스
 class PieceDetail(DetailView):
     model = Piece
     template_name = 'exhibition/ARTA_user_piece_show_page.html'
