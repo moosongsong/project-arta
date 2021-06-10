@@ -78,6 +78,10 @@ class PieceList(ListView):
             context['like_list'] = like
             click = ExhibitionClick(user=user, exhibition_id=pk)
             click.save()
+            if user == exhibition.user:
+                context['is_your_exhibition'] = True
+            else:
+                context['is_your_exhibition'] = False
 
         context['exhibition'] = get_object_or_404(Exhibition, pk=pk)
         context['materials'] = Material.objects.all()
