@@ -30,7 +30,7 @@ urlpatterns = [
     path('exhibition/piece/<int:ak>/dislike/<int:pk>/', views.LikeManage.piece_dislike),
 
     # path('manage/'),
-    # path('manage/exhibition/'),
+    path('manage/exhibition/', views.ExhibitionListForArtist.as_view()),
     # path('manage/exhibition/<int:pk>'),
     # path('manage/exhibition/<int:pk>/update/'),
     # path('manage/exhibition/<int:pk>/delete/'),

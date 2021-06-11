@@ -3,7 +3,7 @@
 {% block header_title %}<title>전시자 - 전시회 목록</title>{% endblock %}
 
 {% block script_blcok %}
-     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $(window).scroll(function () {
@@ -89,75 +89,37 @@
         <!--exhibition list-->
         <div class="content_container col-md-11 col-md-pull-1">
             <div class="article_container">
-                <div class="article_block">
-                    <div class="exhibition_img_block">
-                        <a href="#">
-                            <img class="exhibition_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="전시회1 포스터"/>
-                            <div class="exhibition_action">
-                                <p>전시회 명</p>
+                <!--exhibition block-->
+                {% if exhibition_list %}
+                    {% for exhibition in exhibition_list %}
+                        <div class="article_block">
+                            <div class="exhibition_img_block">
+                                <a href="{{ exhibition.get_absolute_url }}" class="img_block">
+                                    <img class="exhibition_img" src="{{ exhibition.poster.url }}"
+                                         alt="포스터가 등록되지 않았습니다."/>
+                                    <div class="exhibition_action">
+                                        <p>{{ exhibition.explain | truncatewords:20 }}</p>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <h2>전시회 리스트1</h2>
-                    <a href="ARTA_artist_exhibition_show.html">
-                        <p class="exhibitor">전시자명</p>
-                    </a>
-                    <a href="ARTA_artist_exhibition_show.html">
-                        <p class="exhibition_name">전시회 이름</p>
-                    </a>
-                </div>
-                <div class="article_block">
-                    <div class="exhibition_img_block">
-                        <a href="#">
-                            <img class="exhibition_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="전시회1 포스터"/>
-                            <div class="exhibition_action">
-                                <p>전시회 명</p>
-                            </div>
-                        </a>
-                    </div>
-                    <h2>전시회 리스트1</h2>
-                    <a href="ARTA_artist_exhibition_show.html">
-                        <p class="exhibitor">전시자명</p>
-                    </a>
-                    <a href="ARTA_artist_exhibition_show.html">
-                        <p class="exhibition_name">전시회 이름</p>
-                    </a>
-                </div>
-                <div class="article_block">
-                    <div class="exhibition_img_block">
-                        <a href="#">
-                            <img class="exhibition_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="전시회1 포스터"/>
-                            <div class="exhibition_action">
-                                <p>전시회 명</p>
-                            </div>
-                        </a>
-                    </div>
-                    <h2>전시회 리스트1</h2>
-                    <a href="ARTA_artist_exhibition_show.html">
-                        <p class="exhibitor">전시자명</p>
-                    </a>
-                    <a href="ARTA_artist_exhibition_show.html">
-                        <p class="exhibition_name">전시회 이름</p>
-                    </a>
-                </div>
-                <div class="article_block">
-                    <div class="exhibition_img_block">
-                        <a href="#">
-                            <img class="exhibition_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="전시회1 포스터"/>
-                            <div class="exhibition_action">
-                                <p>전시회 명</p>
-                            </div>
-                        </a>
-                    </div>
-                    <h2>전시회 리스트1</h2>
-                    <a href="ARTA_artist_exhibition_show.html">
-                        <p class="exhibitor">전시자명</p>
-                    </a>
-                    <a href="ARTA_artist_exhibition_show.html">
-                        <p class="exhibition_name">전시회 이름</p>
-                    </a>
-                </div>
+                            <a href="{{ exhibition.get_absolute_url }}">
+                                <p class="exhibitor">{{ exhibition.start_at }} ~ {{ exhibition.end_at }}</p>
+                            </a>
+                            <a href="{{ exhibition.get_absolute_url }}">
+                                <p class="exhibition_name">{{ exhibition.name }}
+                                    <span class="badge" style="background-color: #5CA4A2">{{ exhibition.mode }}</span>
+                                </p>
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
+            {% if exhibition_list %}
+            {% else %}
+                <div style="margin-bottom: 80%;margin-top: 10%">
+                    <p>전시회가 없습니다.</p>
+                </div>
+            {% endif %}
         </div>
     </div>
     <div class="row">

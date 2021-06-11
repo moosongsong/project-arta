@@ -333,3 +333,18 @@ class ShareManage:
             return PermissionDenied
 
 
+# 전시회의 목록을 출력하는 클래스
+class ExhibitionListForArtist(ListView):
+    model = Exhibition
+    paginate_by = 4
+    template_name = 'exhibition/ARTA_artist_exhibition_list.html'
+
+    def get_queryset(self):
+        exhibition_list = Exhibition.objects.filter(user=self.request.user).order_by('end_at')
+        return exhibition_list
+
+    def get_context_data(self, **kwargs):
+        context = super(ExhibitionListForArtist, self).get_context_data()
+        context['categories'] = Category.objects.all()
+        context['category_name'] = '전체'
+        return context
