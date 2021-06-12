@@ -31,7 +31,7 @@ urlpatterns = [
 
     # path('manage/'),
     path('manage/exhibition/', views.ExhibitionListForArtist.as_view()),
-    # path('manage/exhibition/<int:pk>'),
+    path('manage/exhibition/<int:pk>/', views.PieceListForArtist.as_view()),
     # path('manage/exhibition/<int:pk>/update/'),
     # path('manage/exhibition/<int:pk>/delete/'),
     # path('manage/exhibition/register/'),

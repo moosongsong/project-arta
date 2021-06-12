@@ -37,65 +37,78 @@
             <a class="exhibition_edit" href="ARTA_artist_exhibition_modify.html">edit</a>
         </div>
         <div class="content_container col-md-11 col-md-pull-1">
-            <div class="article_container">
-                <article>
-                    <h2>전시회 페이지</h2>
-                    <img class="exhibition_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="전시회1 포스터"/>
-                    <p><strong>작가이름</strong></p>
-                    <p><strong>제목</strong></p>
-                    <p>전시회 설명입니다. 이 전시회는 어떤어떤 곳에서 어떠한 이유로 개최되었고 이러이러한 작품들을 전시하고 있습니다.</p>
-                </article>
-                <div>
-                    <div class="piece_container">
-                        <a href="#">
-                            <img class="piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
-                        </a>
-                        <a href="#">
-                            <img class="piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
-                        </a>
-                        <a href="#">
-                            <img class="piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
-                        </a>
-
-                        <a href="#">
-                            <img class="piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
-                        </a>
-                        <a href="#">
-                            <img class="piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
-                        </a>
-                        <a href="#">
-                            <img class="piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
-                        </a>
-
-                        <a href="#">
-                            <img class="piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
-                        </a>
-                        <a href="#">
-                            <img class="piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
-                        </a>
-                        <a href="#">
-                            <img class="piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
-                        </a>
-
-                        <a href="#">
-                            <img class="piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
-                        </a>
-                        <a href="#">
-                            <img class="piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
-                        </a>
-                        <a href="#">
-                            <img class="piece_img" src="https://i.imgur.com/hiTuxfv.jpeg" alt="작품1 이미지"/>
-                        </a>
+            <!--exhibition-->
+            {% if is_paginated and page_obj.number != 1 %}
+                <div class="article_container">
+                    <div class="exhibition_poster">
+                        <div class="exhibition_info">
+                            <p class="exhibition_name"><strong>{{ exhibition.name }}</strong></p>
+                        </div>
                     </div>
-                    <a href="before_page">
-                        <p class="page_lbt">&#60; before</p>
-                    </a>
-                    <a href="before_page">
-                        <p class="page_rbt">next &#62;</p>
-                    </a>
+                    <div class="exhibition_main">
+                        <!--piece list-->
+                        <div class="piece_container">
+                            <!--piece loop-->
+                            {% if piece_list %}
+                                {% for piece in piece_list %}
+                                    <!--piece-->
+                                    <div class="piece_img_block">
+                                        <a href="{{ piece.get_absolute_url }}" class="img_block">
+                                            <img class="piece_img" src="{{ piece.image.url }}"
+                                                 alt="그림이 서버에서 사라짐...ㅠㅠ"/>
+                                            <div class="piece_action">
+                                                <p>{{ piece.author }}</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
+            {% else %}
+                <div class="article_container">
+                    <div class="exhibition_poster">
+                        <img class="exhibition_img" src="{{ exhibition.poster.url }}" alt="포스터가 등록되지 않았습니다."/>
+                        <div class="exhibition_info">
+                            <p class="exhibit_day">{{ exhibition.start_at }} ~ {{ exhibition.end_at }}</p>
+                            <p class="exhibitor"><i class="fas fa-eye"></i> {{ exhibition.click_count }}</p><br/>
+                            <p class="exhibition_name"><strong>{{ exhibition.name }}</strong></p>
+                            <p class="exhibit_day">{{ total }}개의 작품이 전시중이에요!</p><br/>
+                        </div>
+                    </div>
+                    <div class="exhibition_main">
+                        <div class="exhibition_p">
+                            <p>{{ exhibition.explain }}</p>
+                        </div>
+                        <!--piece list-->
+                        <div class="piece_container">
+                            <!--piece loop-->
+                            {% if piece_list %}
+                                {% for piece in piece_list %}
+                                    <!--piece-->
+                                    <div class="piece_img_block">
+                                        <a href="{{ piece.get_absolute_url }}" class="img_block">
+                                            <img class="piece_img" src="{{ piece.image.url }}"
+                                                 alt="그림이 서버에서 사라짐...ㅠㅠ"/>
+                                            <div class="piece_action">
+                                                <p>{{ piece.author }}</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if piece_list %}
+            {% else %}
+                <div style="margin-top: 10%;margin-bottom: 10%">
+                    <p>아직 등록된 그림이 없습니다. 조금만 기다려~</p>
+                </div>
+            {% endif %}
 
-            </div>
         </div>
     </div>
 {% endblock %}

@@ -273,7 +273,8 @@ class PieceSearch(ListView):
 
     def get_queryset(self):
         q = self.kwargs['q']
-        piece_list = Piece.objects.filter(Q(name__contains=q) | Q(author__contains=q) | Q(material__name__contains=q)).distinct()
+        piece_list = Piece.objects.filter(
+            Q(name__contains=q) | Q(author__contains=q) | Q(material__name__contains=q)).distinct()
         return piece_list
 
     def get_context_data(self, **kwargs):
@@ -333,7 +334,7 @@ class ShareManage:
             return PermissionDenied
 
 
-# 전시회의 목록을 출력하는 클래스
+# 작가의 전시회의 목록을 출력하는 클래스
 class ExhibitionListForArtist(ListView):
     model = Exhibition
     paginate_by = 4
@@ -347,4 +348,35 @@ class ExhibitionListForArtist(ListView):
         context = super(ExhibitionListForArtist, self).get_context_data()
         context['categories'] = Category.objects.all()
         context['category_name'] = '전체'
+        return context
+
+
+# 전시회의 작품들을 출력하는 클래스
+class PieceListForArtist(ListView):
+    model = Piece
+    paginate_by = 8
+    template_name = 'exhibition/ARTA_artist_exhibition_show.html'
+
+    def get_queryset(self):
+        exhibition_id = self.kwargs['pk']
+        piece_list = Piece.objects.filter(exhibition_id=exhibition_id)
+        # .order_by('author')
+        return piece_list
+
+    def get_context_data(self, **kwargs):
+        context = super(PieceListForArtist, self).get_context_data()
+        pk = self.kwargs['pk']
+        exhibition = Exhibition.objects.get(pk=pk)
+        if self.request.user.is_authenticated:
+            user = self.request.user
+            like = ExhibitionLike.objects.filter(user=user, exhibition_id=pk)
+            context['like_list'] = like
+            if user == exhibition.user:
+                context['is_your_exhibition'] = True
+            else:
+                context['is_your_exhibition'] = False
+
+        context['exhibition'] = get_object_or_404(Exhibition, pk=pk)
+        context['materials'] = Material.objects.all()
+        context['total'] = Piece.objects.filter(exhibition=exhibition).count()
         return context
