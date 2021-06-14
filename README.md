@@ -1,5 +1,9 @@
 # ARTA : 사용자 맞춤형 온라인 전시회 플랫폼
 
+
+<img src="readme_dir/슬라이드1.JPG" style="width: 100%"/>
+
+
 ARTA는 '예술'의 영문인 'art'와, '~로 부터'라는 뜻을 가진 영문 단어 'a'를 합하여 만든 합성어로 '예술로부터'라는 뜻을 가지고 있습니다.
 
 
@@ -13,12 +17,12 @@ ARTA는 '예술'의 영문인 'art'와, '~로 부터'라는 뜻을 가진 영문
 🔨 Back-end Repository
    
 [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/moosongsong/ARTA_SERVER_DEVELOP)](https://github.com/moosongsong/ARTA_SERVER_DEVELOP)
-&nbsp; 👈 &nbsp; 비공개
+&nbsp; 👈 &nbsp; 
 
 🎨 Front-end Repository
 
 [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/moosongsong/ARTA_FRONT_DEVELOP)](https://github.com/moosongsong/ARTA_FRONT_DEVELOP)
-&nbsp; 👈 &nbsp; 공개
+&nbsp; 👈 &nbsp; 
 
 ---
 
@@ -30,3 +34,4 @@ ARTA는 '예술'의 영문인 'art'와, '~로 부터'라는 뜻을 가진 영문
 
 ---
 
+### 프로젝트 주제 선정동기
