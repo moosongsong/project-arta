@@ -9,14 +9,14 @@
         //카카오 공유
         $(document).ready(
             function shareKakao() {
-                Kakao.init('61d34319ce6231efe326b8125598493a');
+                Kakao.init('bb7f55b9f78127bb6d4d416fff4dacb4');
                 Kakao.Link.createDefaultButton({
                     container: '#btnKakao',
                     objectType: 'feed',
                     content: {
                         title: "{{ piece.name }} - {{ piece.author }}",
                         description: "{{ piece.explain | truncatewords:12 }}",
-                        imageUrl: "http://fine-village.co.kr/",
+                        imageUrl: "{{ piece.image.url }}",
                         link: {
                             mobileWebUrl: window.location.href,  //카카오 앱
                             webUrl: window.location.href  //카카오 PC
