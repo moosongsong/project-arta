@@ -31,7 +31,7 @@ ARTA는 '예술'의 영문인 'art'와, '~로 부터'라는 뜻을 가진 영문
 
 ### LIVE SERVER
 
-🎆 [Live Server Link](http://fine-village.co.kr/)
+🎆 [Live Server Link](http://3.35.246.221/)
 
 시범적으로 운영중인 서버입니다.
 
