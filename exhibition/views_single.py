@@ -40,11 +40,18 @@ class SinglePage:
         )
 
     # 테스트 페이지를 출력하는 메소드
+    def manage_page(request):
+        if request.user.is_authenticated:
+            return render(
+                request,
+                'exhibition/ARTA_manage_page.html',
+            )
+        else:
+            return redirect('/')
+
+    # 테스트 페이지를 출력하는 메소드
     def test_page(request):
         return render(
             request,
             'exhibition/ARTA_artist_exhibition_show.html',
         )
-
-
-

@@ -6,6 +6,8 @@ urlpatterns = [
     path('about', views_single.SinglePage.about_page),
     path('login', views_single.SinglePage.login_page),
     path('test', views_single.SinglePage.test_page),
+    # path('profile', views_single.SinglePage.test_page),
+    # path('artist', views_single.SinglePage.test_page),
 
     path('preference', views.LikePieceList.as_view()),
     path('preference/piece', views.LikePieceList.as_view()),
@@ -29,7 +31,7 @@ urlpatterns = [
     path('exhibition/piece/<int:pk>/new_like', views.LikeManage.piece_like),
     path('exhibition/piece/<int:ak>/dislike/<int:pk>', views.LikeManage.piece_dislike),
 
-    # path('manage', views_manage.ExhibitionListForArtist.as_view()),
+    path('manage', views_single.SinglePage.manage_page),
     path('manage/<str:pk>', views_manage.ExhibitionListForArtist.as_view()),
     path('manage/exhibition/<int:pk>', views_manage.PieceListForArtist.as_view()),
     # path('manage/exhibition/<int:pk>/update/'),
