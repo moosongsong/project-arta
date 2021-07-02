@@ -62,28 +62,36 @@
             <div id="category_list">
                 <h2 class="h_name">CATEGORY</h2>
                 <ul class="category_list">
-                    {% if category_name == '전체' %}
+                    {% if category_name == 'all' %}
                         <li>
-                            <a href="/exhibition/" class="list_bold">전체</a>
+                            <a href="/manage/all/" class="list_bold">전체</a>
                         </li>
                     {% else %}
                         <li>
-                            <a href="/exhibition/">전체</a>
+                            <a href="/manage/all/">전체</a>
                         </li>
                     {% endif %}
-                    {% if categories.exists %}
-                        {% for category in categories %}
-                            {% if category.slug == category_name.slug %}
-                                <li><a href="{{ category.get_absolute_url }}"
-                                       class="list_bold">{{ category.name }}</a></li>
-                            {% else %}
-                                <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
-                            {% endif %}
-                        {% endfor %}
+                    {% if category_name == 'open' %}
+                        <li>
+                            <a href="/manage/open/" class="list_bold">진행중</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="/manage/open/">진행중</a>
+                        </li>
+                    {% endif %}
+                    {% if category_name == 'close' %}
+                        <li>
+                            <a href="/manage/close/" class="list_bold">종료</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="/manage/close/">종료</a>
+                        </li>
                     {% endif %}
                 </ul>
             </div>
-            <a class="exhibition_edit" href="내가 만든 전시회 목록만 보이는 화면...">edit</a>
+{#            <a class="exhibition_edit" href="내가 만든 전시회 목록만 보이는 화면...">edit</a>#}
         </div>
 
         <!--exhibition list-->

@@ -158,3 +158,7 @@ class ExhibitionShare(models.Model):
 class PieceShare(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     piece = models.ForeignKey(Piece, on_delete=models.SET_NULL, null=True, blank=True)
+
+# class Testmodel(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+#     piece = models.ForeignKey(Piece, on_delete=models.SET_NULL, null=True, blank=True)

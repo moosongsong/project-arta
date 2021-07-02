@@ -6,6 +6,7 @@ from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+import datetime
 
 
 # 단일 페이지만 출력하는 모듈입니다.
@@ -341,13 +342,25 @@ class ExhibitionListForArtist(ListView):
     template_name = 'exhibition/ARTA_artist_exhibition_list.html'
 
     def get_queryset(self):
-        exhibition_list = Exhibition.objects.filter(user=self.request.user).order_by('end_at')
+        global exhibition_list
+        open_mode = self.kwargs['pk']
+        if open_mode == 'all':
+            exhibition_list = Exhibition.objects.filter(user=self.request.user).order_by('end_at')
+        elif open_mode == 'open':
+            exhibition_list = Exhibition.objects.filter(user=self.request.user, end_at__gt=datetime.datetime.now()).order_by('end_at')
+        elif open_mode == 'close':
+            exhibition_list = Exhibition.objects.filter(user=self.request.user, end_at__lte=datetime.datetime.now()).order_by('end_at')
         return exhibition_list
 
     def get_context_data(self, **kwargs):
+        open_mode = self.kwargs['pk']
         context = super(ExhibitionListForArtist, self).get_context_data()
-        context['categories'] = Category.objects.all()
-        context['category_name'] = '전체'
+        if open_mode == 'all' or open_mode == 'open' or open_mode == 'close':
+            context['category_name'] = open_mode
+        else:
+            context['category_name'] = 'all'
+            return redirect('/manage/all/')
+
         return context
 
 
