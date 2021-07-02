@@ -13,7 +13,7 @@ import datetime
 class ExhibitionList(ListView):
     model = Exhibition
     paginate_by = 4
-    template_name = 'exhibition/user_page/ARTA_user_exhibition_list_page.html'
+    template_name = 'exhibition/user/user_exhibition_list.html'
 
     def get_queryset(self):
         exhibition_list = Exhibition.objects.filter(end_at__gte=datetime.datetime.now(),
@@ -31,7 +31,7 @@ class ExhibitionList(ListView):
 class PieceList(ListView):
     model = Piece
     paginate_by = 8
-    template_name = 'exhibition/user_page/ARTA_user_exhibition_show_page.html'
+    template_name = 'exhibition/user/user_exhibition_detail.html'
 
     def get_queryset(self):
         exhibition_id = self.kwargs['pk']
@@ -65,7 +65,7 @@ class PieceList(ListView):
 # 작품의 내용을 출력하는 클래스
 class PieceDetail(DetailView):
     model = Piece
-    template_name = 'exhibition/user_page/ARTA_user_piece_show_page.html'
+    template_name = 'exhibition/user/user_piece_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(PieceDetail, self).get_context_data()

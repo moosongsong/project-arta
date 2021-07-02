@@ -16,28 +16,28 @@ class SinglePage:
     def landing_page(request):
         return render(
             request,
-            'exhibition/common/ARTA_main_page.html'
+            'exhibition/common/landing.html'
         )
 
     # 서비스 소개페이지를 출력하는 메소드
     def about_page(request):
         return render(
             request,
-            'exhibition/common/ARTA_introduction_page.html'
+            'exhibition/common/introduction.html'
         )
 
     # 로그인 페이지를 출력하는 메소드
     def login_page(request):
         return render(
             request,
-            'exhibition/common/ARTA_login_kakao_page.html'
+            'exhibition/common/kakao_login.html'
         )
 
     # 검색페이지를 출력하는 메소드
     def search_page(request):
         return render(
             request,
-            'exhibition/common/ARTA_search_page.html',
+            'exhibition/common/search.html',
         )
 
     # 테스트 페이지를 출력하는 메소드
@@ -45,7 +45,7 @@ class SinglePage:
         if request.user.is_authenticated:
             return render(
                 request,
-                'exhibition/common/ARTA_manage_page.html',
+                'exhibition/common/infomation.html',
                 # {
                 #     'category_name': category,
                 # }
@@ -57,5 +57,5 @@ class SinglePage:
     def test_page(request):
         return render(
             request,
-            'exhibition/artist_page/ARTA_artist_exhibition_show.html',
+            'exhibition/artist/ARTA_artist_exhibition_show.html',
         )

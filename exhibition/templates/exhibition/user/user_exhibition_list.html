@@ -1,6 +1,6 @@
 {% extends 'exhibition/base_header.html' %}
 {% load static %}
-{% block header_title %}<title>전시자 - 전시회 목록</title>{% endblock %}
+{% block header_title %}<title>전시회 목록</title>{% endblock %}
 
 {% block script_blcok %}
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -28,10 +28,9 @@
         });
     </script>
 {% endblock %}
-
 {% block style_blcok %}
     <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
-    <link rel="stylesheet" href="{% static 'exhibition/css/exhibition_list_style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'exhibition/css/exhibition_list.css' %}"/>
     <link rel="stylesheet" href="{% static 'exhibition/css/pagination.css' %}"/>
 {% endblock %}
 
@@ -42,41 +41,24 @@
             <div id="category_list">
                 <h2 class="h_name">CATEGORY</h2>
                 <ul class="category_list">
-                    {% if category_name == 'all' %}
+                    {% if category_name == '전체' %}
                         <li>
-                            <a href="/manage/all/" class="list_bold">전체</a>
+                            <a href="/exhibition" class="list_bold">전체</a>
                         </li>
                     {% else %}
                         <li>
-                            <a href="/manage/all/">전체</a>
+                            <a href="/exhibition">전체</a>
                         </li>
                     {% endif %}
-                    {% if category_name == 'ready' %}
-                        <li>
-                            <a href="/manage/ready/" class="list_bold">예정</a>
-                        </li>
-                    {% else %}
-                        <li>
-                            <a href="/manage/ready/">예정</a>
-                        </li>
-                    {% endif %}
-                    {% if category_name == 'open' %}
-                        <li>
-                            <a href="/manage/open/" class="list_bold">진행중</a>
-                        </li>
-                    {% else %}
-                        <li>
-                            <a href="/manage/open/">진행중</a>
-                        </li>
-                    {% endif %}
-                    {% if category_name == 'close' %}
-                        <li>
-                            <a href="/manage/close/" class="list_bold">종료</a>
-                        </li>
-                    {% else %}
-                        <li>
-                            <a href="/manage/close/">종료</a>
-                        </li>
+                    {% if categories.exists %}
+                        {% for category in categories %}
+                            {% if category.slug == category_name.slug %}
+                                <li><a href="{{ category.get_absolute_url }}"
+                                       class="list_bold">{{ category.name }}</a></li>
+                            {% else %}
+                                <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+                            {% endif %}
+                        {% endfor %}
                     {% endif %}
                 </ul>
             </div>
@@ -90,7 +72,7 @@
                     {% for exhibition in exhibition_list %}
                         <div class="article_block">
                             <div class="exhibition_img_block">
-                                <a href="/manage{{ exhibition.get_absolute_url }}" class="img_block">
+                                <a href="{{ exhibition.get_absolute_url }}" class="img_block">
                                     <img class="exhibition_img" src="{{ exhibition.poster.url }}"
                                          alt="포스터가 등록되지 않았습니다."/>
                                     <div class="exhibition_action">
@@ -98,10 +80,10 @@
                                     </div>
                                 </a>
                             </div>
-                            <a href="/manage{{ exhibition.get_absolute_url }}">
+                            <a href="{{ exhibition.get_absolute_url }}">
                                 <p class="exhibitor">{{ exhibition.start_at }} ~ {{ exhibition.end_at }}</p>
                             </a>
-                            <a href="/manage{{ exhibition.get_absolute_url }}">
+                            <a href="{{ exhibition.get_absolute_url }}">
                                 <p class="exhibition_name">{{ exhibition.name }}
                                     <span class="badge" style="background-color: #5CA4A2">{{ exhibition.mode }}</span>
                                 </p>

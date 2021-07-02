@@ -53,10 +53,10 @@
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <a href="/"><img class="menu_logo" src="{% static 'exhibition/images/민트로고.png' %}" alt="ARTA"></a>
                     <a href="/about/">소개 <small>about us</small></a>
-                    <a href="/exhibition">전시회 <small>exhibition</small></a>
+                    <a href="/exhibition/">전시회 <small>exhibition</small></a>
                     {% if user.is_authenticated %}
                         <a href="/preference/">좋아요 <small>like page</small></a>
-                        <a href="/manage/">내 정보<small>my info</small></a>
+                        <a href="/info/">내 정보<small>my info</small></a>
                         <a href="/accounts/logout/">로그아웃 <small>log out</small></a>
                         <p class="text-left" style="padding: 5% 5% 5% 10%;text-decoration: none;font-size: 15px;
                         color: #5CA4A2;display: block;transition: 0.3s;">'{{ user.username }}'님<br/>반갑습니다 ❤</p>
