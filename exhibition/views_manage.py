@@ -24,6 +24,9 @@ class ExhibitionListForArtist(ListView):
         elif open_mode == 'ready':
             exhibition_list = Exhibition.objects.filter(user=self.request.user,
                                                         start_at__gt=datetime.datetime.now()).order_by('end_at')
+        else:
+            exhibition_list = Exhibition.objects.filter(user=self.request.user).order_by('end_at')
+
         return exhibition_list
 
     def get_context_data(self, **kwargs):
@@ -33,7 +36,6 @@ class ExhibitionListForArtist(ListView):
             context['category_name'] = open_mode
         else:
             context['category_name'] = 'all'
-            return redirect('/manage/all/')
 
         return context
 

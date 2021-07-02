@@ -12,132 +12,142 @@
     <link rel="stylesheet" href="../css/user_piece_show.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com"> <!--font-->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"><!--font-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <!--font-->
 
     <script type="text/javascript">
-      $(document).ready( function() {
-        $("#header").load("./arta_header.html");
-        $("#category_list").load("./category_list.html");
-        $("#footer").load("./footer.html");
+        $(document).ready(function () {
+            $("#header").load("./arta_header.html");
+            $("#category_list").load("./category_list.html");
+            $("#footer").load("./footer.html");
         });
-      </script>
+    </script>
 </head>
 
 <style>
-  .piece_edit {
-    display: inline-block;
-    background-color: #A0CDC5;
-    color: white;
-    font-size: 10px;
-    padding: 2px;
-    border-radius: 10px;
-    text-align: right;
-  }
-  .aside_nav {
-    display: inline-block;
-    position: absolute;
-    left: 50%;
-    margin-left : -20px;
-  }
-  @media screen and (min-width: 992px) {
-    .aside_nav {
-      display: none;
+    .piece_edit {
+        display: inline-block;
+        background-color: #A0CDC5;
+        color: white;
+        font-size: 10px;
+        padding: 2px;
+        border-radius: 10px;
+        text-align: right;
     }
-  }
+
+    .aside_nav {
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        margin-left: -20px;
+    }
+
+    @media screen and (min-width: 992px) {
+        .aside_nav {
+            display: none;
+        }
+    }
 
 </style>
 
 <script>
-//카카오 공유
-  function shareKakao() {
-    Kakao.init('61d34319ce6231efe326b8125598493a');
+    //카카오 공유
+    function shareKakao() {
+        Kakao.init('61d34319ce6231efe326b8125598493a');
 
-    Kakao.Link.createDefaultButton({
-      container: '#btnKakao',
-      objectType: 'feed',
-      content: {
-        title: "ARTA",
-        description: "ARTA 입니다",
-        imageUrl: "http://fine-village.co.kr/",
-        link: {
-          mobileWebUrl: "http://fine-village.co.kr/",
-          webUrl: "http://fine-village.co.kr/"
-        }
-      }
-    });
-  }
+        Kakao.Link.createDefaultButton({
+            container: '#btnKakao',
+            objectType: 'feed',
+            content: {
+                title: "ARTA",
+                description: "ARTA 입니다",
+                imageUrl: "http://fine-village.co.kr/",
+                link: {
+                    mobileWebUrl: "http://fine-village.co.kr/",
+                    webUrl: "http://fine-village.co.kr/"
+                }
+            }
+        });
+    }
 </script>
 
 <body>
 <div class="container-fluid">
-  <header id="header"></header>
+    <header id="header"></header>
 
     <div class="row">
         <div class="aside_container col-md-1 col-md-push-11">
-          <p class="aside_nav">작품 보기</p>
-          <a href="ARTA_artist_piece_modify.html"><p class="piece_edit">edit</p></a>
+            <p class="aside_nav">작품 보기</p>
+            <a href="ARTA_artist_piece_modify.html"><p class="piece_edit">edit</p></a>
         </div>
         <div class="content_container col-md-11 col-md-pull-1">
             <div class="article_container">
-              <div class="row row_content">
-                <div class="form-group">
-                  <p class="piece_name col-xs-6"><strong>작품명</strong></p>
-                  <p class="exhibitor col-xs-6"><strong>작가명</strong></p>
+                <div class="row row_content">
+                    <div class="form-group">
+                        <p class="piece_name col-xs-6"><strong>작품명</strong></p>
+                        <p class="exhibitor col-xs-6"><strong>작가명</strong></p>
+                    </div>
                 </div>
-              </div>
 
-              <div class="row row_content">
-                <div class="explain_piece"> <!--작품 설명-->
-                  <p class="explanation">널 만나고 이 도시는 눈부시게 빛나 어디든 나를 어린 아이처럼 만들어 또 마음껏 놀고 싶어 난 회색 빛의 기억을 알록달록하게 넌 물들여
-                    미지의 그 영역을 찾게 한 순간 묻혔던 감각들을 깨워낸 듯한 그곳은 중력보다 강하게 또 아주 깊숙하게 헤어나지 못할 끝까지 끌어당겨 날</p>
+                <div class="row row_content">
+                    <div class="explain_piece"> <!--작품 설명-->
+                        <p class="explanation">널 만나고 이 도시는 눈부시게 빛나 어디든 나를 어린 아이처럼 만들어 또 마음껏 놀고 싶어 난 회색 빛의 기억을 알록달록하게 넌
+                            물들여
+                            미지의 그 영역을 찾게 한 순간 묻혔던 감각들을 깨워낸 듯한 그곳은 중력보다 강하게 또 아주 깊숙하게 헤어나지 못할 끝까지 끌어당겨 날</p>
+                    </div>
                 </div>
-              </div>
 
-              <div class="row row_content">
-                <div class="form-group">
-                  <img class="piece" src="../images/보스 정우.jpg" alt="보스 정우">
+                <div class="row row_content">
+                    <div class="form-group">
+                        <img class="piece" src="../images/보스 정우.jpg" alt="보스 정우">
+                    </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="piece_size">
-                  <p class="size">98x219</p>
+                <div class="row">
+                    <div class="piece_size">
+                        <p class="size">98x219</p>
+                    </div>
                 </div>
-              </div>
 
-              <div class="icon row"> <!--공유 버튼, 좋아요 버튼-->
-                <a class="share" id="btnKakao" href="javascript:shareKakao();"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                <a class="bookmark" href=""><i class="fa fa-heart" aria-hidden="true"></i></a>
-                <!-- <a class="menu_button" href=""><i class="fa fa-bars" style="font-size:15px" aria-hidden="true"></i></a> -->
-              </div>
+                <div class="icon row"> <!--공유 버튼, 좋아요 버튼-->
+                    <a class="share" id="btnKakao" href="javascript:shareKakao();"><i class="fa fa-share-alt"
+                                                                                      aria-hidden="true"></i></a>
+                    <a class="bookmark" href=""><i class="fa fa-heart" aria-hidden="true"></i></a>
+                    <!-- <a class="menu_button" href=""><i class="fa fa-bars" style="font-size:15px" aria-hidden="true"></i></a> -->
+                </div>
 
-              <div class="comments"> <!--댓글-->
-                <div class="input-comment">
-                  <!-- <div class="user_name">사용자 이름</div> -->
-                  <textarea id="new-comment" class="form-control" name="new_comment" rows="2" placeholder="댓글을 입력해주세요"></textarea>
-                  <button class="submit_btn" type="submit" onclick="submitComment()">OK!</button>
+                <div class="comments"> <!--댓글-->
+                    <div class="input-comment">
+                        <!-- <div class="user_name">사용자 이름</div> -->
+                        <textarea id="new-comment" class="form-control" name="new_comment" rows="2"
+                                  placeholder="댓글을 입력해주세요"></textarea>
+                        <button class="submit_btn" type="submit" onclick="submitComment()">OK!</button>
+                    </div>
+                    <div class="comment-row">
+                        <div class="comment_list">
+                            <div class="user_name">김정우</div>
+                            <div class="comment-date">2021-07-31 08:02:19</div>
+                            <a href="#">
+                                <div class="comment-delete">삭제</div>
+                            </a>
+                            <div class="comment-content">널 만나고 이 도시는</div>
+                        </div>
+                    </div>
+                    <div class="comment-row">
+                        <div class="comment_list">
+                            <div class="user_name">오복이</div>
+                            <div class="comment-date">2021-02-19 07:31:24</div>
+                            <a href="#">
+                                <div class="comment-delete">삭제</div>
+                            </a>
+                            <div class="comment-content">눈부시게 빛나 어디든</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="comment-row">
-                  <div class="comment_list">
-                    <div class="user_name">김정우</div>
-                    <div class="comment-date">2021-07-31 08:02:19</div>
-                    <a href="#"><div class="comment-delete">삭제</div></a>
-                    <div class="comment-content">널 만나고 이 도시는</div>
-                  </div>
-                </div>
-                <div class="comment-row">
-                  <div class="comment_list">
-                    <div class="user_name">오복이</div>
-                    <div class="comment-date">2021-02-19 07:31:24</div>
-                    <a href="#"><div class="comment-delete">삭제</div></a>
-                    <div class="comment-content">눈부시게 빛나 어디든</div>
-                  </div>
-                </div>
-              </div>
             </div>
         </div>
     </div>
-    <footer id = "footer"></footer> <!--페이징-->
+    <footer id="footer"></footer> <!--페이징-->
 </div>
 </body>
 </html>

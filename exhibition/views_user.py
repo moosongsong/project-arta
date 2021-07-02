@@ -16,7 +16,8 @@ class ExhibitionList(ListView):
     template_name = 'exhibition/ARTA_user_exhibition_list_page.html'
 
     def get_queryset(self):
-        exhibition_list = Exhibition.objects.all().order_by('end_at')
+        exhibition_list = Exhibition.objects.filter(end_at__gte=datetime.datetime.now(),
+                                                    start_at__lte=datetime.datetime.now()).order_by('end_at')
         return exhibition_list
 
     def get_context_data(self, **kwargs):
@@ -38,9 +39,10 @@ class PieceList(ListView):
         return piece_list
 
     def get_context_data(self, **kwargs):
-        context = super(PieceList, self).get_context_data()
         pk = self.kwargs['pk']
         exhibition = Exhibition.objects.get(pk=pk)
+
+        context = super(PieceList, self).get_context_data()
         exhibition.click_count = exhibition.click_count + 1
         exhibition.save()
         if self.request.user.is_authenticated:

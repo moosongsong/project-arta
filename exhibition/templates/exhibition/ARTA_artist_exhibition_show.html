@@ -1,6 +1,6 @@
 {% extends 'exhibition/ARTA_header.html' %}
 {% load static %}
-{% block header_title %}<title>전시회 등록</title>{% endblock %}
+{% block header_title %}<title>전시회 보가</title>{% endblock %}
 
 {% block script_blcok %}
 {% endblock %}
@@ -8,26 +8,6 @@
 {% block style_blcok %}
     <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
     <link rel="stylesheet" href="{% static 'exhibition/css/exhibition_show_style.css' %}"/>
-
-    <style>
-        .exhibition_edit {
-            display: inline-block;
-            background: #5CA4A2;
-            color: white;
-            font-size: 10px;
-            padding: 2px 2px 2px 2px;
-            border-radius: 6px;
-            text-decoration: none;
-        }
-
-        .exhibition_edit:visited,
-        .exhibition_edit:hover,
-        .exhibition_edit:active {
-            text-decoration: none;
-            font-weight: bold;
-            color: white;
-        }
-    </style>
 {% endblock %}
 
 {% block main_blcok %}

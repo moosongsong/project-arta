@@ -1,28 +1,28 @@
-.article_container{
+.article_container {
     border-bottom: 1px solid #5CA4A2;
 }
 
-.exhibition_img{
+.exhibition_img {
     width: 100%;
     padding: 2%;
     object-fit: contain;
     border-bottom: 1px solid #5CA4A2;
 }
 
-.piece_container{
+.piece_container {
     overflow: auto;
     vertical-align: middle;
 }
 
-.img_block{
-    display: block!important;
+.img_block {
+    display: block !important;
     overflow: hidden;
     position: relative;
     width: 100%;
     padding-bottom: 100%;
 }
 
-.piece_img{
+.piece_img {
     position: absolute;
     padding: 1%;
     margin: 0;
@@ -49,11 +49,11 @@
     font-size: 13px;
 }
 
-.piece_img_block a{
+.piece_img_block a {
     position: relative;
 }
 
-.piece_action{
+.piece_action {
     position: absolute;
     top: 0;
     left: 0;
@@ -63,10 +63,10 @@
     padding: 10%;
     z-index: 1;
     background-color: #ffffff;
-    background-color: rgba( 255, 255, 255, 0.5 );
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-.piece_action p{
+.piece_action p {
     height: 100%;
     color: black;
     display: flex;
@@ -76,15 +76,16 @@
 }
 
 .piece_img_block a:hover .piece_action {
-    opacity: 1; !important;
+    opacity: 1;
+!important;
 }
 
-.aside_container{
+.aside_container {
     display: flex;
     justify-content: center;
 }
 
-.h_name{
+.h_name {
     display: inline-block;
     margin: auto;
     font-size: 15px;
@@ -122,14 +123,15 @@
 }
 
 .bookmark > .red {
-    color: red; !important;
+    color: red;
+!important;
 }
 
-.exhibitor > strong{
+.exhibitor > strong {
     font-size: 16px;
 }
 
-.exhibition_name > strong{
+.exhibition_name > strong {
     font-size: 18px;
 }
 
@@ -138,14 +140,14 @@
 }
 
 @media screen and (min-width: 992px) and (max-width: 1024px) {
-    .exhibition_main{
+    .exhibition_main {
         width: 250%;
     }
 
 }
 
 @media screen and (min-width: 1025px) {
-    .exhibition_main{
+    .exhibition_main {
         width: 180%;
     }
 
@@ -163,19 +165,19 @@
 }
 
 @media screen and (min-width: 992px) {
-    .aside_container{
+    .aside_container {
         display: flex;
         flex-direction: column;
     }
 
-    .article_container{
+    .article_container {
         width: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
     }
 
-    .exhibition_poster{
+    .exhibition_poster {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -183,7 +185,7 @@
         border-right: 1px solid #5CA4A2;
     }
 
-    .exhibition_main{
+    .exhibition_main {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -222,7 +224,7 @@
         align-items: center;
     }
 
-    .h_name{
+    .h_name {
         margin: auto;
         width: 100%;
         padding-top: 10px;
@@ -269,32 +271,40 @@
     position: relative;
 }
 
-.form-control{
+.form-control {
     display: inline-block;
     width: 100%;
     resize: none;
-    padding-right: 38px;!important;
-    padding-left: 5px;!important;
+    padding-right: 38px;
+!important;
+    padding-left: 5px;
+!important;
     border-color: #5CA4A2;
 }
 
 .form-control::-webkit-scrollbar {
     width: 5px;
 }
+
 .form-control::-webkit-scrollbar-thumb {
     background-color: #5CA4A2;
 }
+
 .form-control::-webkit-scrollbar-track {
     background-color: white;
 }
 
 .form-control:focus, textarea:focus {
-    outline:none !important;
+    outline: none !important;
     outline-width: 0 !important;
-    outline-color: #5CA4A2; !important;
-    box-shadow: none;!important;
-    -moz-box-shadow: none;!important;
-    -webkit-box-shadow: none;!important;
+    outline-color: #5CA4A2;
+!important;
+    box-shadow: none;
+!important;
+    -moz-box-shadow: none;
+!important;
+    -webkit-box-shadow: none;
+!important;
 }
 
 .submit_btn {
@@ -320,9 +330,11 @@
     justify-content: flex-start;
     wrap-option: warp;
 }
+
 .input-comment {
     padding-bottom: 10px;
 }
+
 .store-comment {
     width: 100%;
     display: flex;
@@ -334,9 +346,11 @@
 .comment-id {
     padding-right: 15px;
 }
+
 .comment-date {
     text-align: left;
-    font-size: 14px; !important;
+    font-size: 14px;
+!important;
 }
 
 .cancel-button {
@@ -348,10 +362,12 @@
     padding-right: 3px;
     float: left;
 }
-.comment-content{
+
+.comment-content {
     padding-left: 14px;
 }
-.modal-close{
+
+.modal-close {
     display: inline-block;
     float: right;
     font-size: 20px;
@@ -359,4 +375,22 @@
     border: none;
     background-color: white;
 
+}
+
+.exhibition_edit {
+    display: inline-block;
+    background: #5CA4A2;
+    color: white;
+    font-size: 10px;
+    padding: 2px 2px 2px 2px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.exhibition_edit:visited,
+.exhibition_edit:hover,
+.exhibition_edit:active {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
 }
