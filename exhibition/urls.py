@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from . import artist_views
 
 urlpatterns = [
     path('', views.SinglePage.landing_page),
@@ -30,7 +31,7 @@ urlpatterns = [
     path('exhibition/piece/<int:ak>/dislike/<int:pk>/', views.LikeManage.piece_dislike),
 
     # path('manage/'),
-    path('manage/<str:pk>/', views.ExhibitionListForArtist.as_view()),
+    path('manage/<str:pk>/', artist_views.ExhibitionListForArtist.as_view()),
     path('manage/exhibition/<int:pk>/', views.PieceListForArtist.as_view()),
     # path('manage/exhibition/<int:pk>/update/'),
     # path('manage/exhibition/<int:pk>/delete/'),
