@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, get_object_or_404
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView
 import datetime
-
 from exhibition.models import Exhibition, Piece, ExhibitionLike, Material
 
 
@@ -30,11 +29,11 @@ class ExhibitionListForArtist(ListView):
     def get_context_data(self, **kwargs):
         open_mode = self.kwargs['pk']
         context = super(ExhibitionListForArtist, self).get_context_data()
-        if open_mode == 'all' or open_mode == 'open' or open_mode == 'close' or open_mode == 'ready':
+        if open_mode in ['all', 'open', 'close', 'ready']:
             context['category_name'] = open_mode
         else:
             context['category_name'] = 'all'
-            return redirect('/manage/all/')
+            return redirect('/manage/all')
 
         return context
 
@@ -47,8 +46,7 @@ class PieceListForArtist(ListView):
 
     def get_queryset(self):
         exhibition_id = self.kwargs['pk']
-        piece_list = Piece.objects.filter(exhibition_id=exhibition_id)
-        # .order_by('author')
+        piece_list = Piece.objects.filter(exhibition_id=exhibition_id).order_by('order')
         return piece_list
 
     def get_context_data(self, **kwargs):

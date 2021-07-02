@@ -8,7 +8,7 @@ class ExhibitionMode(models.Model):
     slug = models.SlugField(max_length=50, unique=True, allow_unicode=True, null=False)
 
     def get_absolute_url(self):
-        return f'/exhibition/mode/{self.slug}/'
+        return f'/exhibition/mode/{self.slug}'
 
     def __str__(self):
         return self.name
@@ -20,7 +20,7 @@ class Category(models.Model):
     image = models.ImageField(upload_to='category_images/', null=True, blank=True)
 
     def get_absolute_url(self):
-        return f'/exhibition/category/{self.slug}/'
+        return f'/exhibition/category/{self.slug}'
 
     def __str__(self):
         return self.name
@@ -38,7 +38,7 @@ class Material(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return f'/piece/material/{self.slug}/'
+        return f'/piece/material/{self.slug}'
 
 
 class Exhibition(models.Model):
@@ -58,7 +58,7 @@ class Exhibition(models.Model):
         return f'[{self.pk}]{self.name}'
 
     def get_absolute_url(self):
-        return f'/exhibition/{self.pk}/'
+        return f'/exhibition/{self.pk}'
 
 
 class ExternalExhibition(models.Model):
@@ -72,7 +72,7 @@ class ExternalExhibition(models.Model):
         return f'out : {self.exhibition.name}'
 
     def get_absolute_url(self):
-        return f'/exhibition/{self.pk}/'
+        return f'/exhibition/{self.pk}'
 
 
 class Piece(models.Model):
@@ -93,7 +93,7 @@ class Piece(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return f'/exhibition/piece/{self.pk}/'
+        return f'/exhibition/piece/{self.pk}'
 
     def get_file_name(self):
         return os.path.basename(self.image.name)
@@ -116,7 +116,7 @@ class Comment(models.Model):
     create_at = models.DateTimeField(auto_now_add=True, null=False)
 
     def get_absolute_url(self):
-        return f'/exhibition/piece/{self.piece.pk}/'
+        return f'/exhibition/piece/{self.piece.pk}'
 
 
 class InitialLike(models.Model):
@@ -129,7 +129,7 @@ class ExhibitionLike(models.Model):
     exhibition = models.ForeignKey(Exhibition, on_delete=models.SET_NULL, null=True, blank=True)
 
     def get_absolute_url(self):
-        return f'/exhibition/{self.exhibition.pk}/'
+        return f'/exhibition/{self.exhibition.pk}'
 
 
 class PieceLike(models.Model):
@@ -137,7 +137,7 @@ class PieceLike(models.Model):
     piece = models.ForeignKey(Piece, on_delete=models.SET_NULL, null=True, blank=True)
 
     def get_absolute_url(self):
-        return f'/exhibition/piece/{self.piece.pk}/'
+        return f'/exhibition/piece/{self.piece.pk}'
 
 
 class ExhibitionClick(models.Model):
