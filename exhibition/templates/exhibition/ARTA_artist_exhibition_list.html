@@ -33,26 +33,6 @@
     <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
     <link rel="stylesheet" href="{% static 'exhibition/css/exhibition_list_style.css' %}"/>
     <link rel="stylesheet" href="{% static 'exhibition/css/pagination.css' %}"/>
-
-    <style>
-        .exhibition_edit {
-            display: inline-block;
-            background: #5CA4A2;
-            color: white;
-            font-size: 10px;
-            padding: 2px 2px 2px 2px;
-            border-radius: 6px;
-            text-decoration: none;
-        }
-
-        .exhibition_edit:visited,
-        .exhibition_edit:hover,
-        .exhibition_edit:active {
-            text-decoration: none;
-            font-weight: bold;
-            color: white;
-        }
-    </style>
 {% endblock %}
 
 {% block main_blcok %}
@@ -100,7 +80,6 @@
                     {% endif %}
                 </ul>
             </div>
-            {#            <a class="exhibition_edit" href="내가 만든 전시회 목록만 보이는 화면...">edit</a>#}
         </div>
 
         <!--exhibition list-->

@@ -1,30 +1,29 @@
 from django.urls import path
-from . import views
-from . import artist_views
+from . import views, user_views, artist_views, single_views
 
 urlpatterns = [
-    path('', views.SinglePage.landing_page),
-    path('about', views.SinglePage.about_page),
-    path('login', views.SinglePage.login_page),
-    path('test', views.SinglePage.test_page),
+    path('', single_views.SinglePage.landing_page),
+    path('about', single_views.SinglePage.about_page),
+    path('login', single_views.SinglePage.login_page),
+    path('test', single_views.SinglePage.test_page),
 
     path('preference/', views.LikePieceList.as_view()),
     path('preference/piece/', views.LikePieceList.as_view()),
     path('preference/exhibition/', views.LikeExhibitionList.as_view()),
 
-    path('search/', views.SinglePage.search_page),
+    path('search/', single_views.SinglePage.search_page),
     path('search/result/piece/<str:q>/', views.PieceSearch.as_view()),
     path('search/result/exhibition/<str:q>/', views.ExhibitionSearch.as_view()),
 
-    path('exhibition/', views.ExhibitionList.as_view()),
-    path('exhibition/<int:pk>/', views.PieceList.as_view()),
+    path('exhibition/', user_views.ExhibitionList.as_view()),
+    path('exhibition/<int:pk>/', user_views.PieceList.as_view()),
     path('exhibition/category/<str:slug>/', views.CategoryManage.category_page),
     path('exhibition/<int:pk>/new_guestbook/', views.GuestbookManage.create_guestbook),
     path('exhibition/delete_guestbook/<int:pk>/', views.GuestbookManage.delete_guestbook),
     path('exhibition/<int:pk>/new_like/', views.LikeManage.exhibition_like),
     path('exhibition/<int:ak>/dislike/<int:pk>/', views.LikeManage.exhibition_dislike),
 
-    path('exhibition/piece/<int:pk>/', views.PieceDetail.as_view()),
+    path('exhibition/piece/<int:pk>/', user_views.PieceDetail.as_view()),
     path('exhibition/piece/<int:pk>/new_comment/', views.CommentManage.create_comment),
     path('exhibition/piece/delete_comment/<int:pk>/', views.CommentManage.delete_comment),
     path('exhibition/piece/<int:pk>/new_like/', views.LikeManage.piece_like),
@@ -32,7 +31,7 @@ urlpatterns = [
 
     # path('manage/'),
     path('manage/<str:pk>/', artist_views.ExhibitionListForArtist.as_view()),
-    path('manage/exhibition/<int:pk>/', views.PieceListForArtist.as_view()),
+    path('manage/exhibition/<int:pk>/', artist_views.PieceListForArtist.as_view()),
     # path('manage/exhibition/<int:pk>/update/'),
     # path('manage/exhibition/<int:pk>/delete/'),
     # path('manage/exhibition/register/'),
