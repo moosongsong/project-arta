@@ -71,6 +71,15 @@
                             <a href="/manage/all/">전체</a>
                         </li>
                     {% endif %}
+                    {% if category_name == 'ready' %}
+                        <li>
+                            <a href="/manage/ready/" class="list_bold">예정</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="/manage/ready/">예정</a>
+                        </li>
+                    {% endif %}
                     {% if category_name == 'open' %}
                         <li>
                             <a href="/manage/open/" class="list_bold">진행중</a>
@@ -91,7 +100,7 @@
                     {% endif %}
                 </ul>
             </div>
-{#            <a class="exhibition_edit" href="내가 만든 전시회 목록만 보이는 화면...">edit</a>#}
+            {#            <a class="exhibition_edit" href="내가 만든 전시회 목록만 보이는 화면...">edit</a>#}
         </div>
 
         <!--exhibition list-->
