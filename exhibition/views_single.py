@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 import datetime
+from django.contrib.auth.models import User
 
 
 # 단일 페이지만 출력하는 모듈입니다.
@@ -45,6 +46,9 @@ class SinglePage:
             return render(
                 request,
                 'exhibition/ARTA_manage_page.html',
+                # {
+                #     'category_name': category,
+                # }
             )
         else:
             return redirect('/')

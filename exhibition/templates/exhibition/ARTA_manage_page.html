@@ -53,15 +53,21 @@
                 <div class="introduce">
                     <br/>
                     <div class="col-12 text-center">
-                        <a class="login_btn btn-block" href="/profile">
-                           프로필 보기
+                        <a class="login_btn btn-block" href="/profile/">
+                            프로필 보기
                         </a>
-                        <a class="login_btn btn-block" href="/manage/all">
-                           진행중인 전시회
-                        </a>
-                        <a class="login_btn btn-block" href="/artist">
-                           작가 프로필
-                        </a>
+                        {% if user.is_superuser %}
+                            <a class="login_btn btn-block" href="/admin/">
+                                관리자 모드
+                            </a>
+                        {% elif user.is_staff %}
+                            <a class="login_btn btn-block" href="/manage/all/">
+                                진행중인 전시회
+                            </a>
+                            <a class="login_btn btn-block" href="/artist/">
+                                작가 프로필
+                            </a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -33,7 +33,7 @@ class ExhibitionListForArtist(ListView):
             context['category_name'] = open_mode
         else:
             context['category_name'] = 'all'
-            return redirect('/manage/all')
+            return redirect('/manage/all/')
 
         return context
 
