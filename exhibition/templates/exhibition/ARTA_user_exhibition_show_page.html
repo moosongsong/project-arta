@@ -77,11 +77,15 @@
         <div class="aside_container col-md-1 col-md-push-11">
             <h2 class="h_name">
                 <a href="{{ exhibition.get_absolute_url }}">전시회 보기</a>
-                {% if is_your_exhibition %}
-                    <a class="exhibition_edit" href="#">edit</a>
-                {% endif %}
             </h2>
             <div class="icon_row">
+                <!--edit icon-->
+                {% if is_your_exhibition %}
+                    <a class="share" id="bookmark" href="">
+                        <i class="fas fa-edit" style="font-size:13px" aria-hidden="true"></i>
+                        <p class="icon_font"> 수정 </p>
+                    </a>
+                {% endif %}
                 <!--share icon-->
                 <a class="share" id="btnKakao" href="javascript:shareKakao();">
                     <i class="fa fa-share-alt" style="font-size:13px" aria-hidden="true"></i>
