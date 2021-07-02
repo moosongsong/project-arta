@@ -1,4 +1,4 @@
-{% extends 'exhibition/ARTA_header.html' %}
+{% extends 'exhibition/base_header.html' %}
 {% load static %}
 {% block header_title %}<title>Main</title>{% endblock %}
 
@@ -43,7 +43,7 @@
                     {% endfor %}
                 {% endif %}
                 <div class="main_page">
-                    <a href="/exhibition/">
+                    <a href="/exhibition">
                         <img class="main_logo" src="{% static 'exhibition/images/민트로고.png' %}" alt="ARTA">
                     </a>
                 </div>

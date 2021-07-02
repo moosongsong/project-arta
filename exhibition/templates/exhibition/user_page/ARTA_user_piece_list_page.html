@@ -1,4 +1,4 @@
-{% extends 'exhibition/ARTA_header.html' %}
+{% extends 'exhibition/base_header.html' %}
 {% load static %}
 {% block header_title %}<title>전시회 목록</title>{% endblock %}
 
@@ -43,11 +43,11 @@
                 <ul class="category_list">
                     {% if category_name == '전체' %}
                         <li>
-                            <a href="/exhibition/" class="list_bold">전체</a>
+                            <a href="/exhibition" class="list_bold">전체</a>
                         </li>
                     {% else %}
                         <li>
-                            <a href="/exhibition/">전체</a>
+                            <a href="/exhibition">전체</a>
                         </li>
                     {% endif %}
                     {% if categories.exists %}

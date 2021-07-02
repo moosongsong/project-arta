@@ -53,7 +53,7 @@
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <a href="/"><img class="menu_logo" src="{% static 'exhibition/images/민트로고.png' %}" alt="ARTA"></a>
                     <a href="/about/">소개 <small>about us</small></a>
-                    <a href="/exhibition/">전시회 <small>exhibition</small></a>
+                    <a href="/exhibition">전시회 <small>exhibition</small></a>
                     {% if user.is_authenticated %}
                         <a href="/preference/">좋아요 <small>like page</small></a>
                         <a href="/manage/">내 정보<small>my info</small></a>
@@ -77,7 +77,7 @@
         </div>
     </div>
     {% block main_blcok %}{% endblock %}
-    {% include 'exhibition/ARTA_footer.html' %}
+    {% include 'exhibition/footer.html' %}
 </div>
 </body>
 

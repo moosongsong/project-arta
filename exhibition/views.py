@@ -108,7 +108,7 @@ class LikeManage:
 
 class LikePieceList(ListView):
     model = PieceLike
-    template_name = 'exhibition/ARTA_like_page.html'
+    template_name = 'exhibition/common/ARTA_like_page.html'
     paginate_by = 8
 
     def get_queryset(self):
@@ -124,7 +124,7 @@ class LikePieceList(ListView):
 
 class LikeExhibitionList(ListView):
     model = ExhibitionLike
-    template_name = 'exhibition/ARTA_like_page.html'
+    template_name = 'exhibition/common/ARTA_like_page.html'
     paginate_by = 8
 
     def get_queryset(self):
@@ -140,7 +140,7 @@ class LikeExhibitionList(ListView):
 
 class ExhibitionSearch(ListView):
     model = Exhibition
-    template_name = 'exhibition/ARTA_search_result_page.html'
+    template_name = 'exhibition/common/ARTA_search_result_page.html'
     paginate_by = 8
 
     def get_queryset(self):
@@ -158,7 +158,7 @@ class ExhibitionSearch(ListView):
 
 class PieceSearch(ListView):
     model = Piece
-    template_name = 'exhibition/ARTA_search_result_page.html'
+    template_name = 'exhibition/common/ARTA_search_result_page.html'
     paginate_by = 8
 
     def get_queryset(self):
@@ -180,7 +180,7 @@ class CategoryManage:
 
         return render(
             request,
-            'exhibition/ARTA_user_exhibition_list_page.html',
+            'exhibition/user_page/ARTA_user_exhibition_list_page.html',
             {
                 'exhibition_list': Exhibition.objects.filter(category=category),
                 'categories': Category.objects.all(),
@@ -195,7 +195,7 @@ class MaterialManage:
 
         return render(
             request,
-            'exhibition/ARTA_user_exhibition_show_page.html',
+            'exhibition/user_page/ARTA_user_exhibition_show_page.html',
             {
                 'piece_list': Piece.objects.filter(material=material),
                 'materials': Material.objects.all(),

@@ -8,7 +8,7 @@ from exhibition.models import Exhibition, Piece, ExhibitionLike, Material
 class ExhibitionListForArtist(ListView):
     model = Exhibition
     paginate_by = 4
-    template_name = 'exhibition/ARTA_artist_exhibition_list.html'
+    template_name = 'exhibition/artist_page/ARTA_artist_exhibition_list.html'
 
     def get_queryset(self):
         global exhibition_list
@@ -44,7 +44,7 @@ class ExhibitionListForArtist(ListView):
 class PieceListForArtist(ListView):
     model = Piece
     paginate_by = 8
-    template_name = 'exhibition/ARTA_artist_exhibition_show.html'
+    template_name = 'exhibition/artist_page/ARTA_artist_exhibition_show.html'
 
     def get_queryset(self):
         exhibition_id = self.kwargs['pk']
