@@ -1,8 +1,9 @@
 {% extends 'exhibition/base_header.html' %}
 {% load static %}
-{% block header_title %}<title>Main</title>{% endblock %}
+{% block header_title %}<title>ARTA</title>{% endblock %}
 
 {% block script_blcok %}{% endblock %}
+
 {% block style_blcok %}
     <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
     <link rel="stylesheet" href="{% static 'exhibition/css/exhibition_list.css' %}"/>
@@ -39,7 +40,9 @@
             <div class="article_container">
                 {% if messages %}
                     {% for message in messages %}
-                        <p>{{ message }}</p><br/>
+                        <script>
+                            message_alert("성공", "{{ message }}");
+                        </script>
                     {% endfor %}
                 {% endif %}
                 <div class="main_page">

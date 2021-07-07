@@ -21,27 +21,9 @@
 
     <!--sweet alert-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{% static 'exhibition/js/main.js' %}"></script>
 
     <link rel="stylesheet" href="{% static 'exhibition/css/header.css' %}"/>
-
-    <script>
-        function openNav() {
-            var mql = window.matchMedia("screen and (min-width: 992px)");
-
-            if (mql.matches) {
-                document.getElementById("mySidenav").style.width = "300px";
-            } else {
-                document.getElementById("mySidenav").style.width = "180px";
-            }
-
-            document.getElementById("mySidenav").style.borderRight = "2px solid #5CA4A2";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("mySidenav").style.borderRight = "none";
-        }
-    </script>
 
     {% block script_blcok %}{% endblock %}
     {% block style_blcok %}{% endblock %}
