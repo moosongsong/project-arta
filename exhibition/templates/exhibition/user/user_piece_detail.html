@@ -6,7 +6,6 @@
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script>
-        //카카오 공유
         $(document).ready(
             function shareKakao() {
                 Kakao.init('bb7f55b9f78127bb6d4d416fff4dacb4');
@@ -23,7 +22,7 @@
                         }
                     }
                 });
-            })
+            });
     </script>
 {% endblock %}
 {% block style_blcok %}
@@ -58,7 +57,7 @@
     {% if messages %}
         {% for message in messages %}
             <script>
-                alert("{{ message }}");
+                message_alert("잠깐!", "{{ message }}");
             </script>
         {% endfor %}
     {% endif %}
@@ -75,7 +74,7 @@
                         <p class="piece_name col-xs-6">{{ piece.name }}</p>
                         <p class="exhibitor col-xs-6">{{ piece.author }}&nbsp;
                             {% if piece.make_at %}
-                            ({{ piece.make_at.year }}作)
+                                ({{ piece.make_at.year }}作)
                             {% endif %}
                         </p>
                     </div>
@@ -119,8 +118,8 @@
                     </div>
                 </div>
 
-
-                <div class="icon"> <!--공유 버튼, 좋아요 버튼-->
+                <!--공유 버튼, 좋아요 버튼-->
+                <div class="icon">
                     <!--share icon-->
                     <a class="share" id="btnKakao" href="javascript:shareKakao();">
                         <i class="fa fa-share-alt" aria-hidden="true"></i></a>

@@ -1,9 +1,3 @@
-// $(document).ready(function () {
-//     function message_alert(title, contents) {
-//         swal(title, contents);
-//     }
-// });
-
 function message_alert(title, contents) {
     swal(title, contents);
 }
