@@ -70,7 +70,7 @@
     {% if messages %}
         {% for message in messages %}
             <script>
-                alert("{{ message }}");
+                message_alert('잠깐!', "{{ message }}");
             </script>
         {% endfor %}
     {% endif %}

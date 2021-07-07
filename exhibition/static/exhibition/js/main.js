@@ -1,5 +1,5 @@
 function message_alert(title, contents) {
-    swal(title, contents);
+    swal(title, contents, title);
 }
 
 function openNav() {

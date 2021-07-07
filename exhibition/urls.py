@@ -1,11 +1,12 @@
 from django.urls import path
-from . import views, views_user, views_manage, views_single
+from . import views, views_user, views_manage, views_single, views_crolling
 
 urlpatterns = [
     path('', views_single.SinglePage.landing_page),
     path('about/', views_single.SinglePage.about_page),
     path('login/', views_single.SinglePage.login_page),
     path('test/', views_single.SinglePage.test_page),
+    path('reset/', views_crolling.reset_exhibitions),
     # path('profile/', views_single.SinglePage.test_page),
     # path('artist/', views_single.SinglePage.test_page),
 

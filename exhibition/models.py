@@ -43,7 +43,7 @@ class Material(models.Model):
 
 class Exhibition(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False)
-    explain = models.TextField(null=False, blank=False)
+    explain = models.TextField(null=True, blank=True)
     poster = models.ImageField(upload_to='exhibition/%Y/%m/%d/', blank=True, null=True)
     create_at = models.DateTimeField(auto_now_add=True)
     start_at = models.DateField(null=True, blank=True)
@@ -67,6 +67,7 @@ class ExternalExhibition(models.Model):
     location_x = models.FloatField(null=False, blank=True, default=0.0)
     location_y = models.FloatField(null=False, blank=True, default=0.0)
     web_url = models.CharField(max_length=1000, null=True, blank=True)
+    reserve_url = models.CharField(max_length=2000, null=True, blank=True)
 
     def __str__(self):
         return f'out : {self.exhibition.name}'

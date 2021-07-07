@@ -22,14 +22,21 @@
     <!--sweet alert-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <link rel="stylesheet" href="{% static 'exhibition/css/header.css' %}"/>
     <script src="{% static 'exhibition/js/main.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'exhibition/css/header.css' %}"/>
 
     {% block script_blcok %}{% endblock %}
     {% block style_blcok %}{% endblock %}
 </head>
 
 <body>
+{% if messages %}
+    {% for message in messages %}
+        <script>
+            message_alert("{{ message.tags }}", "{{ message.message }}");
+        </script>
+    {% endfor %}
+{% endif %}
 <div class="container-fluid">
     <div class="row">
         <div class="header_row col-xs-12">
