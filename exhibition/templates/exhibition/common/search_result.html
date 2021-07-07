@@ -2,7 +2,13 @@
 {% load static %}
 {% block header_title %}<title>ARTA 검색 결과</title>{% endblock %}
 
-{% block script_blcok %}{% endblock %}
+{% block script_blcok %}
+    <script>
+        function message_alert(searchValue) {
+            swal("잠깐!", '검색어 (' + searchValue + ')가 너무 짧습니다.');
+        }
+    </script>
+{% endblock %}
 {% block style_blcok %}
     <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
     <link rel="stylesheet" href="{% static 'exhibition/css/search.css' %}"/>
@@ -63,7 +69,7 @@
                                     location.href='/search/result/'+radioVal+'/'+searchValue+'/';
                                 }
                                 else {
-                                    alert('검색어 ('+searchValue+')가 너무 짧습니다.');
+                                    message_alert(searchValue);
                                 }
                                 }
                                 searchPost()">
