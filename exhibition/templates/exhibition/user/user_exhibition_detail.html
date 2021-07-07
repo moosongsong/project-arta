@@ -67,13 +67,6 @@
     <link rel="stylesheet" href="{% static 'exhibition/css/pagination.css' %}"/>
 {% endblock %}
 {% block main_blcok %}
-    {% if messages %}
-        {% for message in messages %}
-            <script>
-                message_alert('잠깐!', "{{ message }}");
-            </script>
-        {% endfor %}
-    {% endif %}
     <div class="row">
         <div class="aside_container col-md-1 col-md-push-11">
             <h2 class="h_name">
