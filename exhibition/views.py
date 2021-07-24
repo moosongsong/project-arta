@@ -16,7 +16,7 @@ class CommentManage:
             if request.method == 'POST':
                 comment = Comment(content=request.POST.get('content'), piece=piece, user=request.user)
                 comment.save()
-                messages.info(request, "댓글이 등록되었습니다.")
+                messages.success(request, "댓글이 등록되었습니다.")
                 return redirect(comment.get_absolute_url())
             else:
                 return redirect(piece.get_absolute_url())
@@ -28,7 +28,7 @@ class CommentManage:
         piece = comment.piece
         if request.user.is_authenticated and request.user == comment.user:
             comment.delete()
-            messages.info(request, "댓글이 삭제되었습니다.")
+            messages.success(request, "댓글이 삭제되었습니다.")
             return redirect(piece.get_absolute_url())
         else:
             raise PermissionDenied
@@ -42,7 +42,7 @@ class GuestbookManage:
             if request.method == 'POST':
                 guestbook = GuestBook(content=request.POST.get('content'), exhibition=exhibition, user=request.user)
                 guestbook.save()
-                messages.info(request, "방명록이 등록되었습니다.")
+                messages.success(request, "방명록이 등록되었습니다.")
                 return redirect(guestbook.get_absolute_url())
             else:
                 return redirect(exhibition.get_absolute_url())
@@ -54,7 +54,7 @@ class GuestbookManage:
         exhibition = guestbook.exhibition
         if request.user.is_authenticated and request.user == guestbook.user:
             guestbook.delete()
-            messages.info(request, "방명록이 삭제되었습니다.")
+            messages.success(request, "방명록이 삭제되었습니다.")
             return redirect(exhibition.get_absolute_url())
         else:
             raise PermissionDenied
