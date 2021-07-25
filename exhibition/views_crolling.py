@@ -4,6 +4,10 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
+from .models import Exhibition
+from .models import ExternalExhibition
+from .models import ExhibitionMode
+from django.shortcuts import get_object_or_404
 
 url = 'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EC%98%A8%EB%9D%BC%EC%9D%B8+%EC%A0%84%EC%8B%9C%ED%9A%8C'
 
@@ -32,10 +36,26 @@ def reset_exhibitions(request):
             for i in range(1, 5, 1):
                 title = items.find_element_by_xpath(title_str.format(i)).text
                 date = items.find_element_by_xpath(date_str.format(i)).text
-                start_at = date.split('~')[0]
-                end_at = date.split('~')[-1]
+                start_at = date.split('~')[0].rstrip('.')
+                start_at = start_at.replace('.', '-')
+                end_at = date.split('~')[-1].rstrip('.')
+                end_at = end_at.replace('.', '-')
                 image_url = items.find_element_by_xpath(image_str.format(i)).get_attribute('src')
                 goto_url = items.find_element_by_xpath(goto_str.format(i)).get_attribute('href')
+
+                # mode = get_object_or_404(ExhibitionMode, name='온라인')
+                # try:
+                #     test = ExternalExhibition.objects.filter(web_url=goto_url)
+                #     if test:
+                #         pass
+                # except:
+                #     temp_exhibition = Exhibition(name=title, start_at=start_at, end_at=end_at, mode_id=mode.id)
+                #     temp_exhibition.save()
+                #     temp_exhibition_id = Exhibition.objects.get(name=title)
+                #     temp_external = ExternalExhibition(exhibition_id=temp_exhibition_id.id, web_url=goto_url,
+                #                                        poster_url=image_url)
+                #     temp_external.save()
+
             time.sleep(1)
             next_btn.send_keys(Keys.ENTER)
             time.sleep(1)
