@@ -18,22 +18,17 @@ def reset_exhibitions(request):
         driver.get(url)
         driver.implicitly_wait(10)
 
-        next_btn = driver.find_element_by_css_selector('#main_pack > div.sc_new.cs_common_module.case_list.color_1._kgs_art_exhibition > div.cm_content_wrap > div > div > div.cm_paging_area._page > div > a.pg_next.on');
+        next_btn = driver.find_element_by_css_selector(
+            '#main_pack > div.sc_new.cs_common_module.case_list.color_1._kgs_art_exhibition > div.cm_content_wrap > div > div > div.cm_paging_area._page > div > a.pg_next.on');
         # next_btn = driver.find_element_by_xpath('//*[@id="main_pack"]/div[3]/div[2]/div/div/div[3]/div/a[2]')
         # driver.execute_script("arguments[0].click();", next_btn)
         page = driver.find_element_by_xpath('//*[@id="main_pack"]/div[3]/div[2]/div/div/div[3]/div/span/span[3]').text
         for i in range(int(page)):
             items = driver.find_element_by_xpath('//*[@id="mflick"]/div/div/div/div/div[1]')
-
-            title = items.find_element_by_xpath(
-                '//*[@id="mflick"]/div/div/div/div/div[1]/div[1]/div/div[1]/div/strong/a').text
-            title2 = items.find_element_by_xpath(
-                '//*[@id="mflick"]/div/div/div/div/div[2]/div[1]/div/div[1]/div/strong/a').text
-            title3 = items.find_element_by_xpath(
-                '//*[@id="mflick"]/div/div/div/div/div[3]/div[1]/div/div[1]/div/strong/a').text
-            title4 = items.find_element_by_xpath(
-                '//*[@id="mflick"]/div/div/div/div/div[4]/div[1]/div/div[1]/div/strong/a').text
-            print(f'{title}:{title2}:{title3}:{title4}')
+            title_str = '//*[@id="mflick"]/div/div/div/div/div[{}]/div[1]/div/div[1]/div/strong/a'
+            for i in range(1, 5, 1):
+                title = items.find_element_by_xpath(title_str.format(i)).text
+                print(f'{title}')
             time.sleep(1)
             next_btn.send_keys(Keys.ENTER)
             time.sleep(1)
