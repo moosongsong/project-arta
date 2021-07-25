@@ -15,10 +15,11 @@ class ExhibitionList(ListView):
     paginate_by = 4
     template_name = 'exhibition/user/user_exhibition_list.html'
 
-    # def get_queryset(self):
-    #     exhibition_list = Exhibition.objects.filter(end_at__gte=datetime.datetime.now(),
-    #                                                 start_at__lte=datetime.datetime.now()).order_by('end_at')
-    #     return exhibition_list
+    def get_queryset(self):
+        # exhibition_list = Exhibition.objects.filter(end_at__gte=datetime.datetime.now(),
+        #                                             start_at__lte=datetime.datetime.now()).order_by('end_at')
+        exhibition_list = Exhibition.objects.order_by('end_at')
+        return exhibition_list
 
     def get_context_data(self, **kwargs):
         context = super(ExhibitionList, self).get_context_data()

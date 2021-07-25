@@ -73,7 +73,8 @@
                         <div class="article_block">
                             <div class="exhibition_img_block">
                                 <a href="{{ exhibition.get_absolute_url }}" class="img_block">
-                                    <img class="exhibition_img" src="{{ exhibition.poster.url }}"
+{#                                    <img class="exhibition_img" src="{{ exhibition.poster.url }}"#}
+                                    <img class="exhibition_img" src="{{ exhibition.get_poster_url }}"
                                          alt="포스터가 등록되지 않았습니다."/>
                                     <div class="exhibition_action">
                                         <p>{{ exhibition.explain | truncatewords:20 }}</p>

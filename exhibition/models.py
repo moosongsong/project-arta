@@ -58,7 +58,18 @@ class Exhibition(models.Model):
         return f'[{self.pk}]{self.name}'
 
     def get_absolute_url(self):
-        return f'/exhibition/{self.pk}/'
+        try:
+            ex_id = ExternalExhibition.objects.get(exhibition_id=self.id)
+            return ex_id.web_url
+        except:
+            return f'/exhibition/{self.pk}/'
+
+    def get_poster_url(self):
+        try:
+            ex_id = ExternalExhibition.objects.get(exhibition_id=self.id)
+            return ex_id.web_url
+        except:
+            return self.poster.url
 
 
 class ExternalExhibition(models.Model):
@@ -159,4 +170,3 @@ class ExhibitionShare(models.Model):
 class PieceShare(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     piece = models.ForeignKey(Piece, on_delete=models.SET_NULL, null=True, blank=True)
-
