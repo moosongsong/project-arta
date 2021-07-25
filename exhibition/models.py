@@ -67,7 +67,7 @@ class Exhibition(models.Model):
     def get_poster_url(self):
         try:
             ex_id = ExternalExhibition.objects.get(exhibition_id=self.id)
-            return ex_id.web_url
+            return ex_id.poster_url
         except:
             return self.poster.url
 
@@ -78,7 +78,7 @@ class ExternalExhibition(models.Model):
     location_x = models.FloatField(null=False, blank=True, default=0.0)
     location_y = models.FloatField(null=False, blank=True, default=0.0)
     web_url = models.CharField(max_length=1000, null=True, blank=True)
-    reserve_url = models.CharField(max_length=2000, null=True, blank=True)
+    poster_url = models.CharField(max_length=2000, null=True, blank=True)
 
     def __str__(self):
         return f'out : {self.exhibition.name}'
