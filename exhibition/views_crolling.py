@@ -17,7 +17,7 @@ def reset_exhibitions(request):
 
     if response.status_code == 200:
         driver = webdriver.Chrome(
-            'C:\\Users\\realp\\PycharmProjects\\project-arta-django\\chromedriver.exe')
+            'C:\\Users\\realp\\PycharmProjects\\test\\project-arta-django\\chromedriver.exe')
         driver.implicitly_wait(10)
         driver.get(url)
         driver.implicitly_wait(10)
@@ -42,15 +42,23 @@ def reset_exhibitions(request):
                 end_at = end_at.replace('.', '-')
                 image_url = items.find_element_by_xpath(image_str.format(i)).get_attribute('src')
                 goto_url = items.find_element_by_xpath(goto_str.format(i)).get_attribute('href')
+                print(f'{title}')
 
                 mode = get_object_or_404(ExhibitionMode, name='온라인')
+
                 try:
-                    test = ExternalExhibition.objects.filter(web_url=goto_url)
+                    # test = ExternalExhibition.objects.filter(web_url=goto_url)
+                    test = get_object_or_404(ExternalExhibition, web_url=goto_url)
                     if test:
+                        print('pass')
                         pass
                 except:
                     explain = '설명이 없습니다.'
-                    temp_exhibition = Exhibition(name=title, start_at=start_at, end_at=end_at, mode_id=mode.id, explain=explain)
+                    if end_at == '오픈런':
+                        temp_exhibition = Exhibition(name=title, start_at=start_at, mode_id=mode.id, explain=explain)
+                    else:
+                        temp_exhibition = Exhibition(name=title, start_at=start_at, end_at=end_at, mode_id=mode.id, explain=explain)
+
                     temp_exhibition.save()
                     temp_exhibition_id = get_object_or_404(Exhibition, name=title)
                     temp_external = ExternalExhibition(exhibition_id=temp_exhibition_id.id, web_url=goto_url,
