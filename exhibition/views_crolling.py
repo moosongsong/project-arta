@@ -32,8 +32,12 @@ def reset_exhibitions(request):
             date_str = '//*[@id="mflick"]/div/div/div/div/div[{}]/div[1]/div/div[2]/dl[1]/dd'
             image_str = '//*[@id="mflick"]/div/div/div/div/div[{}]/div[1]/a/img'
             goto_str = '//*[@id="mflick"]/div/div/div/div/div[{}]/div[2]/a'
+
             for i in range(1, 5, 1):
-                title = items.find_element_by_xpath(title_str.format(i)).text
+                try:
+                    title = items.find_element_by_xpath(title_str.format(i)).text
+                except:
+                    break
                 date = items.find_element_by_xpath(date_str.format(i)).text
                 start_at = date.split('~')[0].rstrip('.')
                 start_at = start_at.replace('.', '-')
