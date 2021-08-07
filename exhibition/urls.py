@@ -9,6 +9,7 @@ urlpatterns = [
     path('reset/', views_crolling.reset_exhibitions),
     # path('profile/', views_single.SinglePage.test_page),
     # path('artist/', views_single.SinglePage.test_page),
+    # path('initial/', views_single.SinglePage.test_page),
 
     path('preference/', views.LikePieceList.as_view()),
     path('preference/piece/', views.LikePieceList.as_view()),

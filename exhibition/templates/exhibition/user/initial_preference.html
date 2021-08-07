@@ -1,0 +1,75 @@
+{% extends 'exhibition/base_header.html' %}
+{% load static %}
+{% block header_title %}<title>초기 선호 설정</title>{% endblock %}
+
+{% block script_blcok %}{% endblock %}
+{% block style_blcok %}
+    <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'exhibition/css/exhibition_list.css' %}"/>
+    <style>
+        p {
+            font-size: 15px;
+        }
+
+        .introduce {
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10% 10% 50% 10%;
+            object-fit: contain;
+        }
+
+        .arta {
+            line-height: 165%;
+            text-align: left;
+        }
+
+        @media screen and (min-width: 992px) {
+            .introduce {
+                padding: 10% 7% 50% 7%;
+                border-bottom: 1px solid #5CA4A2;
+            }
+
+            .intro {
+                display: none;
+            }
+        }
+
+        .login_btn {
+            border: 1px solid #5CA4A2;
+            background-color: white;
+            margin-top: 10px;
+            padding: 7px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+    </style>
+{% endblock %}
+
+{% block main_blcok %}
+    <div class="row">
+        <div class="aside_container col-md-1 col-md-push-11">
+            <p class="intro">초기 선호 정보</p>
+        </div>
+        <div class="content_container col-md-11 col-md-pull-1">
+            <div class="article_container">
+                <div class="introduce">
+                    <p class="arta">
+                        보다 더 효율적인 전시회의 추천을 위해, 초기 선호 정보를 등록해주세요!
+                    </p>
+                    <br/>
+                    <div class="col-12">
+                        <p class="arta">
+                            관심이 있는 장르를 선택해주세요!!
+                        </p>
+                        <a class="login_btn">
+                            버튼
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

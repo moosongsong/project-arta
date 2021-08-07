@@ -58,5 +58,5 @@ class SinglePage:
     def test_page(request):
         return render(
             request,
-            'exhibition/artist/ARTA_artist_exhibition_show.html',
+            'exhibition/user/initial_preference.html',
         )
