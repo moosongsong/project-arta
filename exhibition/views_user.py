@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from .models import Exhibition, Category, Material, Piece, Comment, GuestBook, ExhibitionLike, PieceLike, \
-    ExhibitionClick, PieceClick, ExhibitionShare, PieceShare
+    ExhibitionClick, PieceClick, ExhibitionShare, PieceShare, InitialLike
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
@@ -84,22 +84,34 @@ class PieceDetail(DetailView):
         return context
 
 
+# 초기 카테고리를 선택하는 클래스
 class InitialPreference:
+    # 초기 선호 카테고리를 선택하는 페이지 호출
     def preference_page(request):
         if request.user.is_authenticated:
-            category = Category.objects.all();
-            return render(
-                request,
-                'exhibition/user/initial_preference.html',
-                {
-                    'categories': category,
-                }
-            )
+            flag = InitialLike.objects.filter(user=request.user)
+            if flag:
+                messages.add_message(request, messages.ERROR, "초기 설정은 바꿀 수 없습니다.")
+                return redirect("/info/")
+            else:
+                category = Category.objects.all()
+                return render(
+                    request,
+                    'exhibition/user/initial_preference.html',
+                    {
+                        'categories': category,
+                    }
+                )
         else:
             return redirect('/')
 
+    # 초기 선호 카테고리에 대한 처리
     def preference_init(request):
         if request.user.is_authenticated and request.method == "GET":
             selected = request.GET.getlist('init_like')
             print(selected)
+            for element in selected:
+                temp = InitialLike(user=request.user, category_id=int(element))
+                temp.save()
+            messages.add_message(request, messages.SUCCESS, "초기 설정이 완료되었습니다.")
         return redirect('/initial/')
