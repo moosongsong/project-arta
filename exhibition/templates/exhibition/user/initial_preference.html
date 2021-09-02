@@ -63,9 +63,23 @@
                         <p class="arta">
                             관심이 있는 장르를 선택해주세요!!
                         </p>
-                        <a class="login_btn">
-                            버튼
-                        </a>
+                        <br/>
+                        {% if categories %}
+                            <form method="get" action="/initial_submit/">
+                                {% for category in categories %}
+                                    <label style="margin-right: 20px">
+                                        <input type="checkbox" name="init_like" value="{{ category.id }}">
+                                        <span style="margin-left: 5px">{{ category.name }}</span>
+                                    </label>
+                                {% endfor %}
+                                <br/>
+                                <button id="btn_click" class="login_btn" type="submit">
+                                    선택 완료
+                                </button>
+                            </form>
+                        {% else %}
+                            <p class="arta">정보가 없습니다.</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -82,3 +82,24 @@ class PieceDetail(DetailView):
             click.save()
 
         return context
+
+
+class InitialPreference:
+    def preference_page(request):
+        if request.user.is_authenticated:
+            category = Category.objects.all();
+            return render(
+                request,
+                'exhibition/user/initial_preference.html',
+                {
+                    'categories': category,
+                }
+            )
+        else:
+            return redirect('/')
+
+    def preference_init(request):
+        if request.user.is_authenticated and request.method == "GET":
+            selected = request.GET.getlist('init_like')
+            print(selected)
+        return redirect('/initial/')
