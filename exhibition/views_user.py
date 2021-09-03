@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 import datetime
-
+from django.contrib.auth.models import User
 
 # 전시회의 목록을 출력하는 클래스
 class ExhibitionList(ListView):
@@ -115,3 +115,18 @@ class InitialPreference:
                 temp.save()
             messages.add_message(request, messages.SUCCESS, "초기 설정이 완료되었습니다.")
         return redirect('/initial/')
+
+
+class UserDetail:
+    def profile_page(request):
+        user = request.user
+        if user.is_authenticated:
+            return render(
+                request,
+                'exhibition/common/profile.html',
+                {
+                    'user': user,
+                }
+            )
+        else:
+            return redirect('/info/')

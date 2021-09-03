@@ -58,5 +58,5 @@ class SinglePage:
     def test_page(request):
         return render(
             request,
-            'exhibition/user/initial_preference.html',
+            'exhibition/common/profile.html',
         )

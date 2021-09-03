@@ -7,7 +7,7 @@ urlpatterns = [
     path('login/', views_single.SinglePage.login_page),
     path('test/', views_single.SinglePage.test_page),
     path('reset/', views_crolling.reset_exhibitions),
-    # path('profile/', views_single.SinglePage.test_page),
+    path('profile/', views_user.UserDetail.profile_page),
     # path('artist/', views_single.SinglePage.test_page),
     path('initial/', views_user.InitialPreference.preference_page),
     path('initial_submit/', views_user.InitialPreference.preference_init),
