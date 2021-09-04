@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Category, Material, Exhibition, Piece, ExhibitionLike, ExhibitionClick, ExhibitionShare, PieceClick, \
-    PieceLike, PieceShare, InitialLike, Comment, GuestBook, ExhibitionMode, ExternalExhibition
+    PieceLike, PieceShare, InitialLike, Comment, GuestBook, ExhibitionMode, ExternalExhibition, Rating
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -30,3 +30,4 @@ admin.site.register(InitialLike)
 admin.site.register(Comment)
 admin.site.register(GuestBook)
 admin.site.register(ExternalExhibition)
+admin.site.register(Rating)

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ARTA 로그인</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> <!--font-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"><!--font-->
+
+    <script type="text/javascript">
+      $(document).ready( function() {
+        $("#header").load("./arta_header.html");
+        $("#category_list").load("./category_list.html");
+        $("#footer").load("./footer.html");
+        });
+      </script>
+</head>
+
+<style>
+  .article_container {
+    border-bottom: 1px solid #5CA4A2;
+  }
+  .comment {
+    text-align: left;
+    padding-top: 3%;
+    padding-left: 3%;
+    font-size: 12px;
+  }
+  .recommend_img {
+    padding-bottom: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+  .move_page {
+    text-align: center;
+    padding-bottom: 3%;
+  }
+  .dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+  }
+  /* .article_container:hover .recommend_img {
+    transform: translateX(-5%);
+  }
+  .recommend_img:hover ~ .recommend_img {
+    transform: translateX(5%);
+  }
+  .recommend_img:hover {
+    transform: scale(1.05) !important;
+  } */
+  @media screen and (min-width: 992px) {
+    .page_name {
+      display: none;
+    }
+    .dot {
+      height: 15px;
+      width: 15px;
+    }
+  }
+</style>
+
+<body>
+<div class="container-fluid">
+  <header id="header"></header>
+
+    <div class="row">
+        <div class="aside_container col-md-1 col-md-push-11">
+          <p class="page_name">추천</p>
+        </div>
+        <div class="content_container col-md-11 col-md-pull-1">
+            <div class="article_container">
+              <div class="row similar_user">
+                <p class="comment">나와 비슷한 유저가 좋아하는 그림</p>
+                <div class="recommend_img col-xs-6 col-lg-3">
+                  <img src="../images/../images/보스 정우.jpg" style="width:100%">
+                </div>
+                <div class="recommend_img col-xs-6 col-lg-3">
+                  <img src="../images/../images/보스 정우.jpg" style="width:100%">
+                </div>
+                <div class="recommend_img col-xs-6 col-lg-3">
+                  <img src="../images/../images/보스 정우.jpg" style="width:100%">
+                </div>
+                <div class="recommend_img col-xs-6 col-lg-3">
+                  <img src="../images/../images/보스 정우.jpg" style="width:100%">
+                </div>
+
+                <div class="move_page"> <!--페이지 변환-->
+                  <span class="dot" onclick="currentSlide(1)"></span>
+                  <span class="dot" onclick="currentSlide(2)"></span>
+                  <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+              </div>
+
+              <div class="row similar_piece">
+                <p class="comment">내가 본 그림과 유사한 그림</p>
+                <div class="recommend_img col-xs-6 col-lg-3">
+                  <img src="../images/../images/보스 정우.jpg" style="width:100%">
+                </div>
+                <div class="recommend_img col-xs-6 col-lg-3">
+                  <img src="../images/../images/보스 정우.jpg" style="width:100%">
+                </div>
+                <div class="recommend_img col-xs-6 col-lg-3">
+                  <img src="../images/../images/보스 정우.jpg" style="width:100%">
+                </div>
+                <div class="recommend_img col-xs-6 col-lg-3">
+                  <img src="../images/../images/보스 정우.jpg" style="width:100%">
+                </div>
+
+                <div class="move_page"> <!--페이지 변환-->
+                  <span class="dot" onclick="currentSlide(1)"></span>
+                  <span class="dot" onclick="currentSlide(2)"></span>
+                  <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+              </div>
+
+              <div class="row many_users">
+                  <p class="comment">많은 유저들이 본 그림</p>
+                  <div class="recommend_img col-xs-6 col-lg-3">
+                    <img src="../images/../images/보스 정우.jpg" style="width:100%">
+                  </div>
+                  <div class="recommend_img col-xs-6 col-lg-3">
+                    <img src="../images/../images/보스 정우.jpg" style="width:100%">
+                  </div>
+                  <div class="recommend_img col-xs-6 col-lg-3">
+                    <img src="../images/../images/보스 정우.jpg" style="width:100%">
+                  </div>
+                  <div class="recommend_img col-xs-6 col-lg-3">
+                    <img src="../images/../images/보스 정우.jpg" style="width:100%">
+                  </div>
+
+                  <div class="move_page"> <!--페이지 변환-->
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                  </div>
+              </div>
+
+            </div>
+        </div>
+    </div>
+    <footer id = "footer"></footer>
+</div>
+</body>
+</html>
