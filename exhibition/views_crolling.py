@@ -62,7 +62,7 @@ def reset_exhibitions(request):
                         print(f'{title} >> already exist')
                         pass
                 except:
-                    explain = '설명이 없습니다.'
+                    explain = '외부 전시회 입니다.'
                     if end_at == '오픈런':
                         temp_exhibition = Exhibition(name=title, start_at=start_at, mode_id=mode.id, explain=explain,
                                                      category=category)

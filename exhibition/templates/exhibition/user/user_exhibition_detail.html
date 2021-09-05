@@ -210,7 +210,12 @@
                     </div>
                     <div class="exhibition_main">
                         <div class="exhibition_p">
-                            <p>{{ exhibition.explain }}</p>
+                            {% if is_external %}
+                                <p>👉 <a href="{{ external.web_url }}">외부 전시회 바로가기</a> 👈</p>
+                                <br/>
+                            {% else %}
+                                <p>{{ exhibition.explain }}</p>
+                            {% endif %}
                         </div>
                         <!--piece list-->
                         <div class="piece_container">
@@ -237,8 +242,6 @@
             {% else %}
                 <div style="margin-top: 10%;margin-bottom: 10%">
                     {% if is_external %}
-                        <p>
-                        <a href="{{ external.web_url }}">외부 전시회 바로가기</a></p>
                     {% else %}
                         <p>아직 등록된 그림이 없습니다. 조금만 기다려~</p>
                     {% endif %}

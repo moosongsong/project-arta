@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views, views_user, views_manage, views_single, views_crolling, views_recommend, views_search, \
-    views_comment
+    views_comment, views_preference
 
 urlpatterns = [
     path('', views_single.SinglePage.landing_page),
@@ -14,9 +14,9 @@ urlpatterns = [
     path('initial_submit/', views_user.InitialPreference.preference_init),
     path('recommend/', views_recommend.Recommend.get_recommend_page),
 
-    path('preference/', views.LikePieceList.as_view()),
-    path('preference/piece/', views.LikePieceList.as_view()),
-    path('preference/exhibition/', views.LikeExhibitionList.as_view()),
+    path('preference/', views_preference.LikePieceList.as_view()),
+    path('preference/piece/', views_preference.LikePieceList.as_view()),
+    path('preference/exhibition/', views_preference.LikeExhibitionList.as_view()),
 
     path('search/', views_search.search_page),
     path('search/result/piece/<str:q>/', views_search.PieceSearch.as_view()),
@@ -27,14 +27,14 @@ urlpatterns = [
     path('exhibition/category/<str:slug>/', views.CategoryManage.category_page),
     path('exhibition/<int:pk>/new_guestbook/', views_comment.GuestbookManage.create_guestbook),
     path('exhibition/delete_guestbook/<int:pk>/', views_comment.GuestbookManage.delete_guestbook),
-    path('exhibition/<int:pk>/new_like/', views.LikeManage.exhibition_like),
-    path('exhibition/<int:ak>/dislike/<int:pk>/', views.LikeManage.exhibition_dislike),
+    path('exhibition/<int:pk>/new_like/', views_preference.LikeManage.exhibition_like),
+    path('exhibition/<int:ak>/dislike/<int:pk>/', views_preference.LikeManage.exhibition_dislike),
 
     path('exhibition/piece/<int:pk>/', views_user.PieceDetail.as_view()),
     path('exhibition/piece/<int:pk>/new_comment/', views_comment.CommentManage.create_comment),
     path('exhibition/piece/delete_comment/<int:pk>/', views_comment.CommentManage.delete_comment),
-    path('exhibition/piece/<int:pk>/new_like/', views.LikeManage.piece_like),
-    path('exhibition/piece/<int:ak>/dislike/<int:pk>/', views.LikeManage.piece_dislike),
+    path('exhibition/piece/<int:pk>/new_like/', views_preference.LikeManage.piece_like),
+    path('exhibition/piece/<int:ak>/dislike/<int:pk>/', views_preference.LikeManage.piece_dislike),
 
     path('info/', views_single.SinglePage.manage_page),
     path('manage/<str:pk>/', views_manage.ExhibitionListForArtist.as_view()),
