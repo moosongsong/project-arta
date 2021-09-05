@@ -9,6 +9,7 @@ from django.db.models import Q
 import datetime
 from django.contrib.auth.models import User
 
+
 # 전시회의 목록을 출력하는 클래스
 class ExhibitionList(ListView):
     model = Exhibition
