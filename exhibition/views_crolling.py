@@ -1,18 +1,21 @@
+import random
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 import requests
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
-from .models import Exhibition
-from .models import ExternalExhibition
-from .models import ExhibitionMode
+from .models import Exhibition, ExternalExhibition, ExhibitionMode, Category
 from django.shortcuts import get_object_or_404
+from random import *
 
 
 def reset_exhibitions(request):
     online_url = 'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EC%98%A8%EB%9D%BC%EC%9D%B8+%EC%A0%84%EC%8B%9C%ED%9A%8C'
     response = requests.get(online_url)
+    categories = Category.objects.all()
+    count = Category.objects.count()
 
     if response.status_code == 200:
         # 드라이버 다운 받아서, 절대 경로로 지정하세요.
@@ -48,6 +51,10 @@ def reset_exhibitions(request):
 
                 mode = get_object_or_404(ExhibitionMode, name='온라인')
 
+                categories = list(categories)
+                temp = randint(0, count - 1)
+                category = categories[temp]
+
                 try:
                     # test = ExternalExhibition.objects.filter(web_url=goto_url)
                     test = get_object_or_404(ExternalExhibition, web_url=goto_url)
@@ -57,10 +64,11 @@ def reset_exhibitions(request):
                 except:
                     explain = '설명이 없습니다.'
                     if end_at == '오픈런':
-                        temp_exhibition = Exhibition(name=title, start_at=start_at, mode_id=mode.id, explain=explain)
+                        temp_exhibition = Exhibition(name=title, start_at=start_at, mode_id=mode.id, explain=explain,
+                                                     category=category)
                     else:
                         temp_exhibition = Exhibition(name=title, start_at=start_at, end_at=end_at, mode_id=mode.id,
-                                                     explain=explain)
+                                                     category=category, explain=explain)
 
                     temp_exhibition.save()
                     temp_exhibition_id = get_object_or_404(Exhibition, name=title)
@@ -122,7 +130,7 @@ def get_offline_exhibition():
                 except:
                     explain = '설명이 없습니다.'
                     temp_exhibition = Exhibition(name=title, start_at=start_at, end_at=end_at, mode_id=mode.id,
-                                                     explain=explain)
+                                                 explain=explain)
 
                     temp_exhibition.save()
                     temp_exhibition_id = get_object_or_404(Exhibition, name=title)
