@@ -58,11 +58,11 @@ class Exhibition(models.Model):
         return f'[{self.pk}]{self.name}'
 
     def get_absolute_url(self):
-        try:
-            ex_id = ExternalExhibition.objects.get(exhibition_id=self.id)
-            return ex_id.web_url
-        except:
-            return f'/exhibition/{self.pk}/'
+        # try:
+        #     ex_id = ExternalExhibition.objects.get(exhibition_id=self.id)
+        #     return ex_id.web_url
+        # except:
+        return f'/exhibition/{self.pk}/'
 
     def get_poster_url(self):
         try:
