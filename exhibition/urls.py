@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views, views_user, views_manage, views_single, views_crolling
+from . import views, views_user, views_manage, views_single, views_crolling, views_recommend
 
 urlpatterns = [
     path('', views_single.SinglePage.landing_page),
@@ -11,6 +11,7 @@ urlpatterns = [
     # path('artist/', views_single.SinglePage.test_page),
     path('initial/', views_user.InitialPreference.preference_page),
     path('initial_submit/', views_user.InitialPreference.preference_init),
+    path('recommend/', views_recommend.Recommend.get_recommend_page),
 
     path('preference/', views.LikePieceList.as_view()),
     path('preference/piece/', views.LikePieceList.as_view()),
