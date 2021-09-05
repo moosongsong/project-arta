@@ -146,7 +146,7 @@ class ExhibitionSearch(ListView):
     def get_queryset(self):
         q = self.kwargs['q']
         piece_list = Exhibition.objects.filter(
-            Q(name__contains=q) | Q(explain__contains=q)).distinct()
+            Q(name__contains=q) | Q(explain__contains=q)).distinct().order_by('pk')
         return piece_list
 
     def get_context_data(self, **kwargs):
@@ -164,7 +164,7 @@ class PieceSearch(ListView):
     def get_queryset(self):
         q = self.kwargs['q']
         piece_list = Piece.objects.filter(
-            Q(name__contains=q) | Q(author__contains=q) | Q(material__name__contains=q)).distinct()
+            Q(name__contains=q) | Q(author__contains=q) | Q(material__name__contains=q)).distinct().order_by('pk')
         return piece_list
 
     def get_context_data(self, **kwargs):
