@@ -30,15 +30,7 @@ class SinglePage:
     def login_page(request):
         return render(
             request,
-            # 'exhibition/common/kakao_login.html'
             'exhibition/common/login.html'
-        )
-
-    # 검색페이지를 출력하는 메소드
-    def search_page(request):
-        return render(
-            request,
-            'exhibition/common/search.html',
         )
 
     # 마이페이지 페이지를 출력하는 메소드

@@ -138,42 +138,6 @@ class LikeExhibitionList(ListView):
         return context
 
 
-class ExhibitionSearch(ListView):
-    model = Exhibition
-    template_name = 'exhibition/common/search_result.html'
-    paginate_by = 8
-
-    def get_queryset(self):
-        q = self.kwargs['q']
-        piece_list = Exhibition.objects.filter(
-            Q(name__contains=q) | Q(explain__contains=q)).distinct().order_by('pk')
-        return piece_list
-
-    def get_context_data(self, **kwargs):
-        context = super(ExhibitionSearch, self).get_context_data()
-        q = self.kwargs['q']
-        context['search_info'] = f'{q}'
-        return context
-
-
-class PieceSearch(ListView):
-    model = Piece
-    template_name = 'exhibition/common/search_result.html'
-    paginate_by = 8
-
-    def get_queryset(self):
-        q = self.kwargs['q']
-        piece_list = Piece.objects.filter(
-            Q(name__contains=q) | Q(author__contains=q) | Q(material__name__contains=q)).distinct().order_by('pk')
-        return piece_list
-
-    def get_context_data(self, **kwargs):
-        context = super(PieceSearch, self).get_context_data()
-        q = self.kwargs['q']
-        context['search_info'] = f'{q}'
-        return context
-
-
 class CategoryManage:
     def category_page(request, slug):
         category = Category.objects.get(slug=slug)

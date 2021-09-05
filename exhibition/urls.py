@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views, views_user, views_manage, views_single, views_crolling, views_recommend
+from . import views, views_user, views_manage, views_single, views_crolling, views_recommend, views_search
 
 urlpatterns = [
     path('', views_single.SinglePage.landing_page),
@@ -17,9 +17,9 @@ urlpatterns = [
     path('preference/piece/', views.LikePieceList.as_view()),
     path('preference/exhibition/', views.LikeExhibitionList.as_view()),
 
-    path('search/', views_single.SinglePage.search_page),
-    path('search/result/piece/<str:q>/', views.PieceSearch.as_view()),
-    path('search/result/exhibition/<str:q>/', views.ExhibitionSearch.as_view()),
+    path('search/', views_search.search_page),
+    path('search/result/piece/<str:q>/', views_search.PieceSearch.as_view()),
+    path('search/result/exhibition/<str:q>/', views_search.ExhibitionSearch.as_view()),
 
     path('exhibition/', views_user.ExhibitionList.as_view()),
     path('exhibition/<int:pk>/', views_user.PieceList.as_view()),
