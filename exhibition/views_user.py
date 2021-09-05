@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from .models import Exhibition, Category, Material, Piece, Comment, GuestBook, ExhibitionLike, PieceLike, \
-    ExhibitionClick, PieceClick, ExhibitionShare, PieceShare, InitialLike
+    ExhibitionClick, PieceClick, ExhibitionShare, PieceShare, InitialLike, ExternalExhibition
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
@@ -57,6 +57,13 @@ class PieceList(ListView):
                 context['is_your_exhibition'] = True
             else:
                 context['is_your_exhibition'] = False
+
+        try:
+            ex_id = ExternalExhibition.objects.get(exhibition_id=exhibition.id)
+            context['is_external'] = True
+            context['external'] = ex_id
+        except:
+            context['is_external'] = False
 
         context['exhibition'] = get_object_or_404(Exhibition, pk=pk)
         context['materials'] = Material.objects.all()

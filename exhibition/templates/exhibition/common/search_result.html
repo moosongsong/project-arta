@@ -3,11 +3,6 @@
 {% block header_title %}<title>ARTA 검색 결과</title>{% endblock %}
 
 {% block script_blcok %}
-{#    <script>#}
-{#        function message_alert(searchValue) {#}
-{#            swal("잠깐!", '검색어 (' + searchValue + ')가 너무 짧습니다.');#}
-{#        }#}
-{#    </script>#}
 {% endblock %}
 {% block style_blcok %}
     <link rel="stylesheet" href="{% static 'exhibition/css/main.css' %}"/>
@@ -52,6 +47,9 @@
                                 <input type='radio' name='service_type' value='exhibition'>전시회
                                 <input type='radio' name='service_type' value='piece' checked="checked">그림
                             {% elif exhibition_list %}
+                                <input type='radio' name='service_type' value='exhibition' checked="checked">전시회
+                                <input type='radio' name='service_type' value='piece'>그림
+                            {% else %}
                                 <input type='radio' name='service_type' value='exhibition' checked="checked">전시회
                                 <input type='radio' name='service_type' value='piece'>그림
                             {% endif %}
@@ -99,7 +97,7 @@
                                     <div class="col-xs-6 col-lg-3">
                                         <div class="select_image">
                                             <a href="{{ exhibition.get_absolute_url }}">
-                                                <img src="{{ exhibition.poster.url }}" style="width:100%"
+                                                <img src="{{ exhibition.get_poster_url }}" style="width:100%"
                                                      class="selection_img" alt="poster"></a>
                                         </div>
                                     </div>

@@ -39,7 +39,7 @@
                 content: {
                     title: "{{ exhibition.name }}",
                     description: "{{ exhibition.explain | truncatewords:12 }}",
-                    imageUrl: "{{ exhibition.poster.url }}",
+                    imageUrl: "{{ exhibition.get_absolute_url }}",
                     link: {
                         mobileWebUrl: window.location.href,  //카카오 앱
                         webUrl: window.location.href  //카카오 PC
@@ -134,7 +134,6 @@
                                     </div>
                                 {% endif %}
 
-
                                 <!--guest book loop-->
                                 {% if exhibition.guestbook_set.exists %}
                                     {% for guestbook in exhibition.guestbook_set.iterator %}
@@ -196,17 +195,27 @@
             {% else %}
                 <div class="article_container">
                     <div class="exhibition_poster">
-                        <img class="exhibition_img" src="{{ exhibition.poster.url }}" alt="포스터가 등록되지 않았습니다."/>
+                        <img class="exhibition_img" src="{{ exhibition.get_poster_url }}" alt="포스터가 등록되지 않았습니다."/>
                         <div class="exhibition_info">
                             <p class="exhibit_day">{{ exhibition.start_at }} ~ {{ exhibition.end_at }}</p>
                             <p class="exhibitor"><i class="fas fa-eye"></i> {{ exhibition.click_count }}</p><br/>
                             <p class="exhibition_name"><strong>{{ exhibition.name }}</strong></p>
-                            <p class="exhibit_day">{{ total }}개의 작품이 전시중이에요!</p><br/>
+                            {% if is_external %}
+                                <p class="exhibit_day">외부 전시회입니다! 아래의 링크로 접속하세요.</p>
+                            {% else %}
+                                <p class="exhibit_day">{{ total }}개의 작품이 전시중이에요!</p>
+                            {% endif %}
+                            <br/>
                         </div>
                     </div>
                     <div class="exhibition_main">
                         <div class="exhibition_p">
-                            <p>{{ exhibition.explain }}</p>
+                            {% if is_external %}
+                                <p>👉 <a href="{{ external.web_url }}">외부 전시회 바로가기</a> 👈</p>
+                                <br/>
+                            {% else %}
+                                <p>{{ exhibition.explain }}</p>
+                            {% endif %}
                         </div>
                         <!--piece list-->
                         <div class="piece_container">
@@ -232,7 +241,10 @@
             {% if piece_list %}
             {% else %}
                 <div style="margin-top: 10%;margin-bottom: 10%">
-                    <p>아직 등록된 그림이 없습니다. 조금만 기다려~</p>
+                    {% if is_external %}
+                    {% else %}
+                        <p>아직 등록된 그림이 없습니다. 조금만 기다려~</p>
+                    {% endif %}
                 </div>
             {% endif %}
         </div>
