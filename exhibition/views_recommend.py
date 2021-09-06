@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from .models import Exhibition, Category, Material, Piece, Comment, GuestBook, ExhibitionLike, PieceLike, \
-    ExhibitionClick, PieceClick, ExhibitionShare, PieceShare, Rating
+    ExhibitionClick, PieceClick, ExhibitionShare, PieceShare, InitialLike
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
@@ -27,7 +27,7 @@ class Recommend:
             exhibition_info_list.append(element.category)
 
         exhibit_temp = {'Exhibition': exhibition_id_list, 'Category': exhibition_info_list}
-        df_exhibition = pd.DataFrame(exhibit_temp, columns=['Exhibition', 'Category'])
+        df_exhibition = pd.DataFrame(exhibit_temp, columns=['Exhibition', 'Category'])  #dataframe으로 변경
 
         #rating list 만들기
         rating_list_uid = list()
@@ -77,7 +77,46 @@ class Recommend:
         recommendations = recommendations.rename(columns = {user_row_number: 'Predictions'}).sort_values('Predictions', ascending=False).iloc[:4, :]
         print(recommendations)  #추천 제대로 되는 지 확인
 
-    #   아이템 기반 추천
+        #2.카테고리 기반 추천방식
+        #전시회 당 카테고리를 1개만 지정해 놨다고 가정
+        #카테고리 선호조사 데이터
+        init_category = list(InitialLike.objects.filter(user='request'))
+        init_category_list = list()
+        init_cid_list = list()
+        init_cex_list = list()
+        for element in init_category:
+            init_category_list.append(element.category)
+            init_cid_list.append(element.user)
+            init_cex_list.append(0)
+        category = {'User': init_cid_list, 'Exhibition': init_cex_list, 'Category': init_category_list}
+        df_init_category = pd.DataFrame(category, columns=['User', 'Exhibition', 'Category'])
+
+        #유저가 본 전시회들의 카테고리 데이터
+        mask = (user_history.Rate > 3)
+        category_like = user_history.loc[mask, :]
+
+        category_like.append(df_init_category)
+        category_like.append(df_init_category)
+        category_like.append(df_init_category)
+        category_like = category_like.groupby('Category').count
+        category_like = category_like.sort_values(by=['Exhibition'], ascending=False)
+        print(category_like)    #좋아하는 카테고리 카운트 제대로 나왔는 지 확인
+        best_category = category_like.loc[:1,'Category']
+
+        #유저가 보지 않은 전시회 중 best category와 일치하는 category를 가진 전시회 추천
+        recommendations_2 = df_exhibition[~df_exhibition['Exhibition'].isin(user_history['Exhibition'])]
+        recommendations_2 = recommendations_2[recommendations_2['Category'].isin(best_category)]
+        #same_category = recommendations_2['Category'] == best_category
+        #recommendations_2 = recommendations_2[same_category]
+        print(recommendations_2) #추천 제대로 되는 지 확인
+
+        #3.순위를 통한 추천
+        #exhibition_like에서 exhibition group으로 묶어서 top 4, exhibition_click에서 exhibition group으로 묶어서 top 4 두개 겹치는거 제외한 뒤, 랜덤 4개 추천(희망사항)
+        #exhibition_like에서 exhibition group으로 묶어서 top 4 추천하는 것으로..
+
+
+
+    #   아이템 기반 추천 (사용x, 예비용)
     #    user_exhibit_rating = df.pivot_table('Rate', index='User', columns='Exhibition').fillna(0)
     #    exhibit_user_rating = df.pivot_table('Rate', index='Exhibition', columns='User').fillna(0)
     #    print(user_exhibit_rating.head())
