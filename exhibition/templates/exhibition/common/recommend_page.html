@@ -15,7 +15,7 @@
             text-align: left;
             padding-top: 3%;
             padding-left: 3%;
-            font-size: 12px;
+            font-size: 15px;
         }
 
         .recommend_img {
@@ -76,19 +76,18 @@
             <div class="article_container">
                 <div class="row similar_user">
                     <p class="comment">나와 비슷한 유저가 좋아하는 그림</p>
-                    <div class="recommend_img col-xs-6 col-lg-3">
-                        <img src="https://lh3.googleusercontent.com/rsinNbEDPHC6RzCyBHdQJFgqWkkz0g_fb_iEqq2fcMad-orgGSZx_FjU65Q7m7IA6Wve_Hrts5IlGGlIuUzq75E" style="width:100%">
-                    </div>
-                    <div class="recommend_img col-xs-6 col-lg-3">
-                        <img src="https://lh3.googleusercontent.com/rsinNbEDPHC6RzCyBHdQJFgqWkkz0g_fb_iEqq2fcMad-orgGSZx_FjU65Q7m7IA6Wve_Hrts5IlGGlIuUzq75E" style="width:100%">
-                    </div>
-                    <div class="recommend_img col-xs-6 col-lg-3">
-                        <img src="https://lh3.googleusercontent.com/rsinNbEDPHC6RzCyBHdQJFgqWkkz0g_fb_iEqq2fcMad-orgGSZx_FjU65Q7m7IA6Wve_Hrts5IlGGlIuUzq75E" style="width:100%">
-                    </div>
-                    <div class="recommend_img col-xs-6 col-lg-3">
-                        <img src="https://lh3.googleusercontent.com/rsinNbEDPHC6RzCyBHdQJFgqWkkz0g_fb_iEqq2fcMad-orgGSZx_FjU65Q7m7IA6Wve_Hrts5IlGGlIuUzq75E" style="width:100%">
-                    </div>
-
+                    {% if user_exhibition_list %}
+                        {% for exhibition in user_exhibition_list %}
+                            <a href="{{ exhibition.get_absolute_url }}">
+                                <div class="recommend_img col-xs-6 col-lg-3">
+                                    <img src="{{ exhibition.get_poster_url }}"
+                                         style="width:100%" alt="서버에서 그림이 날아감...ㅠㅠ">
+                                </div>
+                            </a>
+                        {% endfor %}
+                    {% else %}
+                        <p>추천된 전시회가 없습니다.</p>
+                    {% endif %}
                     <div class="move_page"> <!--페이지 변환-->
                         <span class="dot" onclick="currentSlide(1)"></span>
                         <span class="dot" onclick="currentSlide(2)"></span>
@@ -98,19 +97,18 @@
 
                 <div class="row similar_piece">
                     <p class="comment">내가 본 그림과 유사한 그림</p>
-                    <div class="recommend_img col-xs-6 col-lg-3">
-                        <img src="https://lh3.googleusercontent.com/rsinNbEDPHC6RzCyBHdQJFgqWkkz0g_fb_iEqq2fcMad-orgGSZx_FjU65Q7m7IA6Wve_Hrts5IlGGlIuUzq75E" style="width:100%">
-                    </div>
-                    <div class="recommend_img col-xs-6 col-lg-3">
-                        <img src="https://lh3.googleusercontent.com/rsinNbEDPHC6RzCyBHdQJFgqWkkz0g_fb_iEqq2fcMad-orgGSZx_FjU65Q7m7IA6Wve_Hrts5IlGGlIuUzq75E" style="width:100%">
-                    </div>
-                    <div class="recommend_img col-xs-6 col-lg-3">
-                        <img src="https://lh3.googleusercontent.com/rsinNbEDPHC6RzCyBHdQJFgqWkkz0g_fb_iEqq2fcMad-orgGSZx_FjU65Q7m7IA6Wve_Hrts5IlGGlIuUzq75E" style="width:100%">
-                    </div>
-                    <div class="recommend_img col-xs-6 col-lg-3">
-                        <img src="https://lh3.googleusercontent.com/rsinNbEDPHC6RzCyBHdQJFgqWkkz0g_fb_iEqq2fcMad-orgGSZx_FjU65Q7m7IA6Wve_Hrts5IlGGlIuUzq75E" style="width:100%">
-                    </div>
-
+                    {% if same_exhibition_list %}
+                        {% for exhibition in same_exhibition_list %}
+                            <a href="{{ exhibition.get_absolute_url }}">
+                                <div class="recommend_img col-xs-6 col-lg-3">
+                                    <img src="{{ exhibition.get_poster_url }}"
+                                         style="width:100%" alt="서버에서 그림이 날아감...ㅠㅠ">
+                                </div>
+                            </a>
+                        {% endfor %}
+                    {% else %}
+                        <p>추천된 전시회가 없습니다.</p>
+                    {% endif %}
                     <div class="move_page"> <!--페이지 변환-->
                         <span class="dot" onclick="currentSlide(1)"></span>
                         <span class="dot" onclick="currentSlide(2)"></span>
@@ -120,19 +118,18 @@
 
                 <div class="row many_users">
                     <p class="comment">많은 유저들이 본 그림</p>
-                    <div class="recommend_img col-xs-6 col-lg-3">
-                        <img src="https://lh3.googleusercontent.com/rsinNbEDPHC6RzCyBHdQJFgqWkkz0g_fb_iEqq2fcMad-orgGSZx_FjU65Q7m7IA6Wve_Hrts5IlGGlIuUzq75E" style="width:100%">
-                    </div>
-                    <div class="recommend_img col-xs-6 col-lg-3">
-                        <img src="https://lh3.googleusercontent.com/rsinNbEDPHC6RzCyBHdQJFgqWkkz0g_fb_iEqq2fcMad-orgGSZx_FjU65Q7m7IA6Wve_Hrts5IlGGlIuUzq75E" style="width:100%">
-                    </div>
-                    <div class="recommend_img col-xs-6 col-lg-3">
-                        <img src="https://lh3.googleusercontent.com/rsinNbEDPHC6RzCyBHdQJFgqWkkz0g_fb_iEqq2fcMad-orgGSZx_FjU65Q7m7IA6Wve_Hrts5IlGGlIuUzq75E" style="width:100%">
-                    </div>
-                    <div class="recommend_img col-xs-6 col-lg-3">
-                        <img src="https://lh3.googleusercontent.com/rsinNbEDPHC6RzCyBHdQJFgqWkkz0g_fb_iEqq2fcMad-orgGSZx_FjU65Q7m7IA6Wve_Hrts5IlGGlIuUzq75E" style="width:100%">
-                    </div>
-
+                    {% if exhibition_list %}
+                        {% for exhibition in exhibition_list %}
+                            <a href="{{ exhibition.get_absolute_url }}">
+                                <div class="recommend_img col-xs-6 col-lg-3">
+                                    <img src="{{ exhibition.get_poster_url }}"
+                                         style="width:100%" alt="서버에서 그림이 날아감...ㅠㅠ">
+                                </div>
+                            </a>
+                        {% endfor %}
+                    {% else %}
+                        <p>추천된 전시회가 없습니다.</p>
+                    {% endif %}
                     <div class="move_page"> <!--페이지 변환-->
                         <span class="dot" onclick="currentSlide(1)"></span>
                         <span class="dot" onclick="currentSlide(2)"></span>
