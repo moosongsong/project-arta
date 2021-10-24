@@ -75,7 +75,7 @@
         <div class="content_container col-md-11 col-md-pull-1">
             <div class="article_container">
                 <div class="row similar_user">
-                    <p class="comment">나와 비슷한 유저가 좋아하는 그림</p>
+                    <p class="comment">나와 비슷한 유저가 좋아하는 전시회</p>
                     {% if user_exhibition_list %}
                         {% for exhibition in user_exhibition_list %}
                             <a href="{{ exhibition.get_absolute_url }}">
@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="row similar_piece">
-                    <p class="comment">내가 본 그림과 유사한 그림</p>
+                    <p class="comment">내가 본 그림과 유사한 전시회</p>
                     {% if same_exhibition_list %}
                         {% for exhibition in same_exhibition_list %}
                             <a href="{{ exhibition.get_absolute_url }}">
@@ -117,7 +117,7 @@
                 </div>
 
                 <div class="row many_users">
-                    <p class="comment">많은 유저들이 본 그림</p>
+                    <p class="comment">많은 유저들이 본 전시회</p>
                     {% if exhibition_list %}
                         {% for exhibition in exhibition_list %}
                             <a href="{{ exhibition.get_absolute_url }}">
